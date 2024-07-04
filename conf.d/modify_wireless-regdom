@@ -1,0 +1,3 @@
+#!/bin/sh
+set -eufo pipefail
+sed 's/^#\(WIRELESS_REGDOM="CN"\)$/\1/' <<< $(cat)

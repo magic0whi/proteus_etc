@@ -1,2 +1,0 @@
-proteus ALL=(ALL) ALL
-proteus ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper
