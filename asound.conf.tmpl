@@ -1,0 +1,13 @@
+# cat /proc/asound/cards
+# cat /proc/asound/pcm
+
+ctl.!default {
+  type hw
+  card {{ index . .chezmoi.hostname "alsa" "defaultCard" }}
+}
+{{- range $pcm:= index . .chezmoi.hostname "alsa" "pcms" }}
+pcm.{{ $pcm.name }} {
+  type plug
+  slave.pcm "dmix:{{ $pcm.path }}"
+}
+{{- end }}

@@ -1,2 +1,25 @@
 [PROTEUSLAPTOP]
+alsa.defaultCard = 'Generic_1'
 batModel = 'L22M4PF7'
+hibernateResumeOffset = 20038942
+wirelessAdapterName = 'wlp1s0'
+
+[[PROTEUSLAPTOP.alsa.pcms]]
+name = '!default'
+path = 'Generic_1,0'
+
+[[PROTEUSLAPTOP.alsa.pcms]]
+name = 'dhdmi0'
+path = 'Generic,3'
+
+[[PROTEUSLAPTOP.alsa.pcms]]
+name = 'dhdmi1'
+path = 'Generic,7'
+
+[[PROTEUSLAPTOP.alsa.pcms]]
+name = 'dhdmi2'
+path = 'Generic,8'
+
+[[PROTEUSLAPTOP.alsa.pcms]]
+name = 'ddmic'
+path = 'acp63,0'

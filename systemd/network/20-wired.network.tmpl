@@ -1,0 +1,11 @@
+{{ if index . .chezmoi.hostname "wireAdapterName" -}}
+[Match]
+Name={{ index . .chezmoi.hostname "wireAdapterName" }}
+
+[Network]
+DHCP=yes
+RouteMetric=10
+
+[IPv6AcceptRA]
+RouteMetric=10
+{{- end }}

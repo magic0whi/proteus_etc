@@ -1,3 +1,4 @@
+{{if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
 [Trigger]
 Operation=Install
 Operation=Upgrade
@@ -9,3 +10,4 @@ Target=linux-firmware
 Description=Replace flawed TAS2781's firmware
 When=PostTransaction
 Exec=/usr/bin/cp /etc/custom_files/TIAS2781RCA4.bin.zst /usr/lib/firmware/ti/tas2781/
+{{- end }}
