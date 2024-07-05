@@ -1,16 +1,12 @@
 [COMMON]
-packages.arch_basic = [
+packages.arch = [
   'linux-zen', 'linux-firmware', 'sbctl',
   'base', 'base-devel', 'udisks2', 'rng-tools', 'zram-generator', 'btrfs-progs', 'bash-completion', 'openssh', 'git', 'helix', 'ntfs-3g', 'cifs-utils',
   'bash-language-server', 'marksman', 'taplo', 'texlab', 'python-lsp-server', 'vscode-css-languageserver', 'vscode-json-languageserver', 'yaml-language-server',
   'btop', 'tmux', 'zsh', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'p7zip', 'unrar', 'innoextract', 'dust',
   'noto-fonts', 'noto-fonts-cjk', 'noto-fonts-emoji'
 ]
-
-[PROTEUSLAPTOP]
-mainUser = 'proteus'
-packages_extra = [
-  'amd-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'mesa', 'vulkan-radeon',
+packages.archExtra = [
   'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf', 'bc', 'usbutils',
   'syncthing', 'hyfetch',
   'pipewire', 'wireplumber', 'pipewire-alsa', 'pipewire-pulse', 'libpulse', 'alsa-utils', 'playerctl',
@@ -22,8 +18,15 @@ packages_extra = [
   'img2pdf', 'gimp', 'obs-studio',
   'steam', 'lutris', 'telegram-desktop',
 ]
+
+[PROTEUSLAPTOP]
+installExtra = true
+packagesSpec = [
+  'amd-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'mesa', 'vulkan-radeon',
+  ]
+mainUser = 'proteus'
 aurChrootPath = '/mnt/aur_chroot'
-packages_aur = [
+packagesAUR = [
   'paru', 'hyprlock-git', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki',
   'protontricks', 'yazi'
 ]
