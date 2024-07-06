@@ -14,7 +14,7 @@ pacman -S --needed --noconfirm{{ range .COMMON.packages.archExtra }}{{ print " "
 {{- if index . .chezmoi.hostname "packagesAUR" }}
 
 # Install AUR packages
-RAMDISK_SIZE=$(($(free -m | awk '/Mem/ { print $2 }')/2))
+RAMDISK_SIZE=$(($(free -m | awk '/Mem/ { print $7 }')/2))
 mount --mkdir -t tmpfs -o defaults,size=${RAMDISK_SIZE}M tmpfs {{ index . .chezmoi.hostname "aurChrootPath" }}
 
 trap 'umount {{ index . .chezmoi.hostname "aurChrootPath" }}/overlay {{ index . .chezmoi.hostname "aurChrootPath" }}; rm /etc/sudoers.d/03_aur_tmp' EXIT
