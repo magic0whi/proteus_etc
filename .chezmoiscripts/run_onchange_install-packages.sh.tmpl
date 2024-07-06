@@ -28,7 +28,7 @@ chown {{ index . .chezmoi.hostname "mainUser" }}: {{ index . .chezmoi.hostname "
 # https://github.com/Morganamilo/paru/blob/5355012aa3529014145b8940dd0c62b21e53095a/src/chroot.rs#L43
 cat <<EOF > /etc/sudoers.d/03_aur_tmp
 {{ index . .chezmoi.hostname "mainUser" }} ALL = (ALL) NOPASSWD: SETENV: /usr/bin/makechrootpkg
-{{ index . .chezmoi.hostname "mainUser" }} ALL = (ALL) NOPASSWD: /usr/bin/arch-nspawn, /usr/bin/install, /usr/bin/mkarchroot, /urs/bin/pacman
+{{ index . .chezmoi.hostname "mainUser" }} ALL = (ALL) NOPASSWD: /usr/bin/arch-nspawn, /usr/bin/install, /usr/bin/mkarchroot, /usr/bin/pacman
 EOF
 
 sudo -u {{ index . .chezmoi.hostname "mainUser" }} paru -S --needed --noconfirm --chroot={{ index . .chezmoi.hostname "aurChrootPath" }}/overlay{{ range index . .chezmoi.hostname "packagesAUR" }}{{ print " " . }}{{ end }}

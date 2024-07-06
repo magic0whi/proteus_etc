@@ -22,22 +22,22 @@ packages.archExtra = [
 [PROTEUSLAPTOP]
 installExtra = true
 packagesSpec = [
-  'amd-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'mesa', 'vulkan-radeon',
+  'amd-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'mesa', 'vulkan-radeon', 'lib32-mesa', 'lib32-vulkan-radeon',
+  'blender'
   ]
 mainUser = 'proteus'
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
-  'paru', 'hyprlock-git', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki', 'hexo-cil',
+  'paru', 'hyprlock-git', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki', 'hexo-cli',
   'protontricks', 'yazi'
 ]
 alsa.defaultCard = 'Generic_1'
 batModel = 'L22M4PF7'
 hibernateResumeOffset = 20038942
-cryptrootUUID='9be53b4a-9e15-4ae7-bb93-0f75875e9bfd'
 # /dev/mapper/cryptroot LABEL=arch_os
 fstabRootUUID='89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
 # /dev/nvme0n1p1
-fstabBootuUID='9523-8B3D'
+fstabBootUUID='9523-8B3D'
 # /dev/mapper/cryptroot LABEL=arch_os
 fstabHomeUUID='89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
 # /dev/mapper/cryptroot LABEL=arch_os
