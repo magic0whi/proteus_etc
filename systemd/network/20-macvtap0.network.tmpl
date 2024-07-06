@@ -1,0 +1,11 @@
+{{ if eq .chezmoi.hostname "PROTEUSNOTEBOOK" -}}
+[Match]
+Name=macvtap0
+
+[Network]
+DHCP=yes
+RouteMetric=10
+
+[IPv6AcceptRA]
+RouteMetric=10
+{{- end -}}

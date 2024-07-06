@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.hostname "PROTEUSNOTEBOOK" -}}
+[NetDev]
+Name=macvtap0
+Kind=macvtap
+
+[MACVTAP]
+Mode=vepa
+{{- end -}}
