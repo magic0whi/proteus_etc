@@ -1,0 +1,22 @@
+{{ if lookPath "xmrig" -}}
+[Unit]
+Description=RandomX, KawPow, CryptoNight, AstroBWT and GhostRider unified CPU/GPU miner and RandomX benchmark
+After=network.target
+
+[Service]
+ExecStartPre=/usr/bin/sh -c 'sysctl vm.nr_hugepages=$(($(sysctl -n vm.nr_hugepages)+
+{{- if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
+512
+{{- else if eq .chezmoi.hostname "PROTEUSNOTEBOOK" -}}
+1180
+{{- end -}}
+))'
+ExecStart=/usr/bin/xmrig -c /etc/xmrig/xmrig.conf
+ExecStopPost=/usr/bin/sh -c 'sysctl vm.nr_hugepages=$(($(sysctl -n vm.nr_hugepages)-
+{{- if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
+512
+{{- else if eq .chezmoi.hostname "PROTEUSNOTEBOOK" -}}
+1180
+{{- end -}}
+))'
+{{- end -}}

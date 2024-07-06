@@ -2,24 +2,24 @@
 # See fstab(5) for details.
 
 # <file system> <dir> <type> <options> <dump> <pass>
-{{ if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
-# /dev/nvme0n1p1
-UUID=9523-8B3D /boot vfat rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro,discard 0 2
+UUID={{ index . .chezmoi.hostname "fstabRootUUID" }} /           btrfs rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@ 0 0
 
-# /dev/mapper/cryptroot LABEL=arch_os
-UUID=89209d7b-bde0-4169-b92e-7b1dd3cbe1bf /           btrfs rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvolid=256,subvol=/@ 0 0
+UUID={{ index . .chezmoi.hostname "fstabBootUUID" }} /boot vfat rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro,discard 0 2
 
-# /dev/mapper/cryptroot LABEL=arch_os
-UUID=89209d7b-bde0-4169-b92e-7b1dd3cbe1bf /home       btrfs rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvolid=258,subvol=/@home 0 0
+UUID={{ index . .chezmoi.hostname "fstabHomeUUID" }} /home       btrfs rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@home 0 0
 
-# /dev/mapper/cryptroot LABEL=arch_os
-UUID=89209d7b-bde0-4169-b92e-7b1dd3cbe1bf /.snapshots btrfs rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvolid=257,subvol=/@snapshots 0 0
+UUID={{ index . .chezmoi.hostname "fstabSnapshotsUUID" }} /.snapshots btrfs rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@snapshots 0 0
 
-# /dev/mapper/cryptroot LABEL=arch_os
-UUID=89209d7b-bde0-4169-b92e-7b1dd3cbe1bf /var/log    btrfs rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvolid=259,subvol=/@var_log 0 0
+UUID={{ index . .chezmoi.hostname "fstabVarLogUUID" }} /var/log    btrfs rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@var_log 0 0
 
 /.snapshots/swapfile none swap defaults 0 0
+{{- if eq .chezmoi.hostname "PROTEUSLAPTOP" "PROTEUSNOTEBOOK" }}
 
 # Samba (LAN)
 //proteusdesktop/storage3 /mnt/smb_share cifs nofail,credentials=/home/proteus/sync-work/3keys/proteus.smb,rw,relatime,vers=3.1.1,cache=strict,uid=1000,noforceuid,gid=1000,noforcegid,file_mode=0644,dir_mode=0755,iocharset=utf8,soft,nounix,serverino,mapposix,reparse=nfs,rsize=4194304,wsize=4194304,bsize=1048576,retrans=1,echo_interval=60,actimeo=1,closetimeo=1 0 0
 {{- end }}
+{{- if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
+
+# /dev/nvme0n1p1 LABEL=storage1
+UUID=af7fe924-3168-4268-8617-b4c9867b05d9 /mnt/storage1 btrfs nofail,rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvolid=256,subvol=/@ 0 0
+{{- end -}}

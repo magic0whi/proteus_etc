@@ -1,0 +1,12 @@
+{{ if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
+#!/bin/sh
+set -eufo pipefail
+# /etc/locale.gen hash: {{ include (print .chezmoi.sourceDir "/custom_files/TIAS2781RCA4.bin.zst") | sha256sum }}
+rsync -ahh@1 --partial --info=stats1,progress2 {{ print .chezmoi.sourceDir "/custom_files/TIAS2781RCA4.bin.zst" }} {{ print .chezmoi.config.destDir "/custom_files/" }}
+
+# /etc/locale.gen hash: {{ include (print .chezmoi.sourceDir "/custom_files/oled_vrr.bin") | sha256sum }}
+rsync -ahh@1 --partial --info=stats1,progress2 {{ print .chezmoi.sourceDir "/custom_files/oled_vrr.bin" }} {{ print .chezmoi.config.destDir "/custom_files/" }}
+
+# /etc/locale.gen hash: {{ include (print .chezmoi.sourceDir "/custom_files/yogaair13s_vrr.bin") | sha256sum }}
+rsync -ahh@1 --partial --info=stats1,progress2 {{ print .chezmoi.sourceDir "/custom_files/yogaair13s_vrr.bin" }} {{ print .chezmoi.config.destDir "/custom_files/" }}
+{{- end -}}

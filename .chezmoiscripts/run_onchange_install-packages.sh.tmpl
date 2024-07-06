@@ -3,7 +3,7 @@
 #!/bin/sh
 set -eufo pipefail
 # Install common and host specific packages
-pacman -Sy --needed --noconfirm
+pacman -Syu --needed --noconfirm
 {{- range .COMMON.packages.arch }}{{ print " " . }}{{ end }}
 {{- range index . .chezmoi.hostname "packagesSpec" }}{{ print " " . }}{{ end }}
 
@@ -15,19 +15,23 @@ pacman -S --needed --noconfirm{{ range .COMMON.packages.archExtra }}{{ print " "
 
 # Install AUR packages
 RAMDISK_SIZE=$(($(free -m | awk '/Mem/ { print $2 }')/2))
-mount --mkdir -t tmpfs -o defaults,size=${RAMDISK_SIZE}M tmpfs {{ index . .chezmoi.hostname "aurChrootPath" }} && dd if=/dev/zero of={{ index . .chezmoi.hostname "aurChrootPath" }}/ramdisk status=progress bs=1M count=$RAMDISK_SIZE && mkfs.btrfs -m single -f {{ index . .chezmoi.hostname "aurChrootPath" }}/ramdisk && mount --mkdir -t btrfs -o loop,compress=zstd {{ index . .chezmoi.hostname "aurChrootPath" }}/ramdisk {{ index . .chezmoi.hostname "aurChrootPath" }}/overlay && chown {{ index . .chezmoi.hostname "mainUser" }}: {{ index . .chezmoi.hostname "aurChrootPath" }}/overlay
+mount --mkdir -t tmpfs -o defaults,size=${RAMDISK_SIZE}M tmpfs {{ index . .chezmoi.hostname "aurChrootPath" }}
+
+trap 'umount {{ index . .chezmoi.hostname "aurChrootPath" }}/overlay {{ index . .chezmoi.hostname "aurChrootPath" }}; rm /etc/sudoers.d/03_aur_tmp' EXIT
+
+dd if=/dev/zero of={{ index . .chezmoi.hostname "aurChrootPath" }}/ramdisk status=progress bs=1M count=$RAMDISK_SIZE
+mkfs.btrfs -m single -f {{ index . .chezmoi.hostname "aurChrootPath" }}/ramdisk
+mount --mkdir -t btrfs -o loop,compress=zstd {{ index . .chezmoi.hostname "aurChrootPath" }}/ramdisk {{ index . .chezmoi.hostname "aurChrootPath" }}/overlay
+chown {{ index . .chezmoi.hostname "mainUser" }}: {{ index . .chezmoi.hostname "aurChrootPath" }}/overlay
 
 # Note: paru hardcoded 'sudo install -dm755 $CHROOT'
 # https://github.com/Morganamilo/paru/blob/5355012aa3529014145b8940dd0c62b21e53095a/src/chroot.rs#L43
 cat <<EOF > /etc/sudoers.d/03_aur_tmp
 {{ index . .chezmoi.hostname "mainUser" }} ALL = (ALL) NOPASSWD: SETENV: /usr/bin/makechrootpkg
-{{ index . .chezmoi.hostname "mainUser" }} ALL = (ALL) NOPASSWD: /usr/bin/mkarchroot, /usr/bin/arch-nspawn, /usr/bin/install
+{{ index . .chezmoi.hostname "mainUser" }} ALL = (ALL) NOPASSWD: /usr/bin/arch-nspawn, /usr/bin/install, /usr/bin/mkarchroot, /urs/bin/pacman
 EOF
 
-trap 'umount {{ index . .chezmoi.hostname "aurChrootPath" }}/overlay {{ index . .chezmoi.hostname "aurChrootPath" }}; rm /etc/sudoers.d/03_aur_tmp' EXIT
-
-# TODO: paru still prompt for sudo when install packages
 sudo -u {{ index . .chezmoi.hostname "mainUser" }} paru -S --needed --noconfirm --chroot={{ index . .chezmoi.hostname "aurChrootPath" }}/overlay{{ range index . .chezmoi.hostname "packagesAUR" }}{{ print " " . }}{{ end }}
 {{- end }}
 {{- end }}
-{{- end }}
+{{- end -}}

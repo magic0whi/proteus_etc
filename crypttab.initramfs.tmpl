@@ -1,0 +1,3 @@
+{{ if index . .chezmoi.hostname "cryptrootUUID" -}}
+cryptroot UUID="{{ index . .chezmoi.hostname "cryptrootUUID" }}" none tpm2-device=auto,discard,no-read-workqueue,no-write-workqueue
+{{- end -}}

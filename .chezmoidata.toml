@@ -3,11 +3,11 @@ packages.arch = [
   'linux-zen', 'linux-firmware', 'sbctl',
   'base', 'base-devel', 'udisks2', 'rng-tools', 'zram-generator', 'btrfs-progs', 'bash-completion', 'openssh', 'git', 'helix', 'ntfs-3g', 'cifs-utils',
   'bash-language-server', 'marksman', 'taplo', 'texlab', 'python-lsp-server', 'vscode-css-languageserver', 'vscode-json-languageserver', 'yaml-language-server',
-  'btop', 'tmux', 'zsh', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'p7zip', 'unrar', 'innoextract', 'dust',
+  'btop', 'tmux', 'zsh', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'p7zip', 'unrar', 'innoextract', 'dust', 'rsync',
   'noto-fonts', 'noto-fonts-cjk', 'noto-fonts-emoji'
 ]
 packages.archExtra = [
-  'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf', 'bc', 'usbutils',
+  'man', 'tealdeer', 'ripgrep', 'fzf', 'bc', 'usbutils',
   'syncthing', 'hyfetch',
   'pipewire', 'wireplumber', 'pipewire-alsa', 'pipewire-pulse', 'libpulse', 'alsa-utils', 'playerctl',
   'libva-mesa-driver', 'libva-utils', 'vulkan-tools',
@@ -27,12 +27,23 @@ packagesSpec = [
 mainUser = 'proteus'
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
-  'paru', 'hyprlock-git', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki',
+  'paru', 'hyprlock-git', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki', 'hexo-cil',
   'protontricks', 'yazi'
 ]
 alsa.defaultCard = 'Generic_1'
 batModel = 'L22M4PF7'
 hibernateResumeOffset = 20038942
+cryptrootUUID='9be53b4a-9e15-4ae7-bb93-0f75875e9bfd'
+# /dev/mapper/cryptroot LABEL=arch_os
+fstabRootUUID='89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
+# /dev/nvme0n1p1
+fstabBootuUID='9523-8B3D'
+# /dev/mapper/cryptroot LABEL=arch_os
+fstabHomeUUID='89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
+# /dev/mapper/cryptroot LABEL=arch_os
+fstabSnapshotsUUID='89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
+# /dev/mapper/cryptroot LABEL=arch_os
+fstabVarLogUUID='89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
 wirelessAdapterName = 'wlp1s0'
 
 [[PROTEUSLAPTOP.alsa.pcms]]
@@ -54,3 +65,68 @@ path = 'Generic,8'
 [[PROTEUSLAPTOP.alsa.pcms]]
 name = 'ddmic'
 path = 'acp63,0'
+
+[PROTEUSNOTEBOOK]
+installExtra = true
+alsa.defaultCard = 'PCH'
+hibernateResumeOffset = 30807076
+cryptrootUUID='b1c2370d-ad25-4fcf-ad93-5b8c19a22e10'
+# /dev/mapper/cryptroot LABEL=arch_os
+fstabRootUUID='5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
+# /dev/nvme1n1p1
+fstabBootUUID='D56B-850D'
+# /dev/mapper/cryptroot LABEL=arch_os
+fstabHomeUUID='5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
+# /dev/mapper/cryptroot LABEL=arch_os
+fstabSnapshotsUUID='5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
+# /dev/mapper/cryptroot LABEL=arch_os
+fstabVarLogUUID='5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
+mainUser = 'proteus'
+wireAdapterName = 'enp46s0'
+wirelessAdapterName = 'wlo1'
+packagesSpec = [
+  'intel-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'mesa', 'vulkan-intel', 'intel-media-driver', 'linux-zen-headers', 'nvidia-open-dkms', 'nvidia-prime', 'lib32-nvidia-utils',
+  'cockpit-machines', 'cockpit-storaged', 'virt-install', 'qemu', 'dnsmasq', 'dmidecode', 'edk2-ovmf', 'swtpm', 'virt-install',
+  'intel-undervolt', 'i2pd', 'tor'
+  ]
+aurChrootPath = '/mnt/aur_chroot'
+packagesAUR = [
+  'paru', 'hyprlock-git', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki', 'hexo-cli',
+  'protontricks', 'yazi'
+]
+
+[[PROTEUSNOTEBOOK.alsa.pcms]]
+name = '!default'
+path = 'PCH,0'
+
+[[PROTEUSNOTEBOOK.alsa.pcms]]
+name = 'dhdmi0'
+path = 'PCH,3'
+
+[[PROTEUSNOTEBOOK.alsa.pcms]]
+name = 'dhdmi1'
+path = 'PCH,7'
+
+[[PROTEUSNOTEBOOK.alsa.pcms]]
+name = 'dhdmi2'
+path = 'PCH,8'
+
+[[PROTEUSNOTEBOOK.alsa.pcms]]
+name = 'dhdmi3'
+path = 'PCH,9'
+
+[[PROTEUSNOTEBOOK.alsa.pcms]]
+name = 'dnvhdmi0'
+path = 'NVidia,3'
+
+[[PROTEUSNOTEBOOK.alsa.pcms]]
+name = 'dnvhdmi1'
+path = 'NVidia,7'
+
+[[PROTEUSNOTEBOOK.alsa.pcms]]
+name = 'dnvhdmi2'
+path = 'NVidia,8'
+
+[[PROTEUSNOTEBOOK.alsa.pcms]]
+name = 'dnvhdmi3'
+path = 'NVidia,9'

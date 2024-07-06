@@ -4,7 +4,13 @@
 # run.  Advanced users may wish to specify all system modules
 # in this array.  For instance:
 #     MODULES=(usbhid xhci_hcd)
-MODULES=({{ if eq .chezmoi.hostname "PROTEUSLAPTOP"}}amdgpu{{ end }})
+MODULES=(
+{{- if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
+amdgpu
+{{- else if eq .chezmoi.hostname "PROTEUSNOTEBOOK" -}}
+i915 nvidia nvidia_modeset nvidia_uvm nvidia_drm
+{{- end -}}
+)
 
 # BINARIES
 # This setting includes any additional binaries a given user may

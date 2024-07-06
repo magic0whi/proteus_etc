@@ -1,0 +1,9 @@
+{{ if lookPath "iwctl" -}}
+[Unit]
+Requires=sys-subsystem-net-devices-{{ index . .chezmoi.hostname "wirelessAdapterName" }}.device
+After=sys-subsystem-net-devices-{{ index . .chezmoi.hostname "wirelessAdapterName" }}.device
+
+[Service]
+ExecStart=
+ExecStart=/usr/lib/iwd/iwd --nointerfaces 'wlan[0-9]'
+{{- end -}}

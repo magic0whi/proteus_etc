@@ -4,6 +4,19 @@ resume=/dev/mapper/cryptroot
 resume_offset={{ index . .chezmoi.hostname "hibernateResumeOffset" }}
 {{- if eq .chezmoi.hostname "PROTEUSLAPTOP" }}
 drm.edid_firmware=eDP-1:../../../etc/custom_files/yogaair13s_vrr.bin,DP-3:../../../etc/custom_files/oled_vrr.bin
+{{- else if eq .chezmoi.hostname "PROTEUSNOTEBOOK"}}
+i915.enable_guc=2
+i915.mitigations=off
+mitigations=off
+nvidia_drm.modeset=1
+nvidia_drm.fbdev=1
+nvidia.NVreg_EnableResizableBar=1
+nvidia.NVreg_UsePageAttributeTable=1
+nvidia.NVreg_PreserveVideoMemoryAllocations=1
+nvidia.NVreg_TemporaryFilePath=/var/tmp/nvidia
+nvidia.NVreg_EnableS0ixPowerManagement=1
+nvidia.NVreg_EnableStreamMemOPs=1
+nvme_core.default_ps_max_latency_us=6000
 {{- end }}
 quiet
 bgrt_disable

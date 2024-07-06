@@ -1,3 +1,4 @@
+{{ if lookPath "xmrig" -}}
 [Unit]
 Description=Stop xmrig.service
 After=network.target
@@ -6,3 +7,4 @@ Conflicts=xmrig.service
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/true
+{{- end -}}
