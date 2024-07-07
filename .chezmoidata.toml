@@ -34,6 +34,7 @@ packagesAUR = [
 alsa.defaultCard = 'Generic_1'
 batModel = 'L22M4PF7'
 hibernateResumeOffset = 20038942
+cryptrootUUID='9be53b4a-9e15-4ae7-bb93-0f75875e9bfd'
 # /dev/mapper/cryptroot LABEL=arch_os
 fstabRootUUID='89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
 # /dev/nvme0n1p1
