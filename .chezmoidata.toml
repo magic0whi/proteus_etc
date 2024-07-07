@@ -14,7 +14,7 @@ packages.archExtra = [
   'ly', 'hyprland', 'hypridle', 'hyprpaper', 'waybar', 'mako', 'xdg-desktop-portal-hyprland', 'rofi-wayland', 'cliphist', 'polkit-gnome', 'power-profiles-daemon', 'qt6ct', 'alacritty', 'grim', 'slurp', 'doublecmd-qt6', 'ffmpegthumbnailer', 'gvfs', 'gvfs-mtp', 'imv',
   'fcitx5-im', 'fcitx5-mozc', 'fcitx5-chewing', 'fcitx5-chinese-addons', 'fcitx5-pinyin-zhwiki',
   'texlive-latexextra', 'texlive-binextra', 'texlive-mathscience', 'texlive-xetex',
-  'firefox', 'profile-sync-daemon', 'mpv', 'zathura', 'zathura-pdf-poppler', 'keepassxc',
+  'firefox', 'profile-sync-daemon', 'mpv', 'zathura', 'zathura-pdf-poppler',
   'img2pdf', 'gimp', 'obs-studio',
   'steam', 'lutris', 'telegram-desktop',
 ]
@@ -23,13 +23,13 @@ packages.archExtra = [
 installExtra = true
 packagesSpec = [
   'amd-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'mesa', 'vulkan-radeon', 'lib32-mesa', 'lib32-vulkan-radeon',
-  'blender'
+  'keepassxc', 'blender'
   ]
 mainUser = 'proteus'
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
   'paru', 'hyprlock-git', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki', 'hexo-cli',
-  'protontricks', 'yazi'
+  'protontricks', 'yazi', 'ueberzugpp'
 ]
 alsa.defaultCard = 'Generic_1'
 batModel = 'L22M4PF7'
@@ -92,7 +92,7 @@ packagesSpec = [
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
   'paru', 'hyprlock-git', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki', 'hexo-cli',
-  'protontricks', 'yazi'
+  'protontricks', 'yazi', 'ueberzugpp'
 ]
 
 [[PROTEUSNOTEBOOK.alsa.pcms]]
