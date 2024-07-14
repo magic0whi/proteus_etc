@@ -1,3 +1,4 @@
+{{ if lookPath "alsactl" -}}
 # cat /proc/asound/cards
 # cat /proc/asound/pcm
 
@@ -11,3 +12,4 @@ pcm.{{ $pcm.name }} {
   slave.pcm "dmix:{{ $pcm.path }}"
 }
 {{- end }}
+{{- end -}}

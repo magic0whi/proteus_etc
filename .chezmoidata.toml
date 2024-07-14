@@ -25,7 +25,7 @@ installExtra = true
 packagesSpec = [
   'amd-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'mesa', 'vulkan-radeon', 'lib32-mesa', 'lib32-vulkan-radeon',
   'keepassxc', 'blender'
-  ]
+]
 mainUser = 'proteus'
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
@@ -35,17 +35,17 @@ packagesAUR = [
 alsa.defaultCard = 'Generic_1'
 batModel = 'L22M4PF7'
 hibernateResumeOffset = 20038942
-cryptrootUUID='9be53b4a-9e15-4ae7-bb93-0f75875e9bfd'
+cryptrootUUID = '9be53b4a-9e15-4ae7-bb93-0f75875e9bfd'
 # /dev/mapper/cryptroot LABEL=arch_os
-fstabRootUUID='89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
+fstabRootUUID = '89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
 # /dev/nvme0n1p1
-fstabBootUUID='9523-8B3D'
+fstabBootUUID = '9523-8B3D'
 # /dev/mapper/cryptroot LABEL=arch_os
-fstabHomeUUID='89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
+fstabHomeUUID = '89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
 # /dev/mapper/cryptroot LABEL=arch_os
-fstabSnapshotsUUID='89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
+fstabSnapshotsUUID = '89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
 # /dev/mapper/cryptroot LABEL=arch_os
-fstabVarLogUUID='89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
+fstabVarLogUUID = '89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
 wirelessAdapterName = 'wlp1s0'
 
 [[PROTEUSLAPTOP.alsa.pcms]]
@@ -72,17 +72,17 @@ path = 'acp63,0'
 installExtra = true
 alsa.defaultCard = 'PCH'
 hibernateResumeOffset = 30807076
-cryptrootUUID='b1c2370d-ad25-4fcf-ad93-5b8c19a22e10'
+cryptrootUUID = 'b1c2370d-ad25-4fcf-ad93-5b8c19a22e10'
 # /dev/mapper/cryptroot LABEL=arch_os
-fstabRootUUID='5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
+fstabRootUUID = '5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
 # /dev/nvme1n1p1
-fstabBootUUID='D56B-850D'
+fstabBootUUID = 'D56B-850D'
 # /dev/mapper/cryptroot LABEL=arch_os
-fstabHomeUUID='5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
+fstabHomeUUID = '5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
 # /dev/mapper/cryptroot LABEL=arch_os
-fstabSnapshotsUUID='5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
+fstabSnapshotsUUID = '5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
 # /dev/mapper/cryptroot LABEL=arch_os
-fstabVarLogUUID='5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
+fstabVarLogUUID = '5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
 mainUser = 'proteus'
 wireAdapterName = 'enp46s0'
 wirelessAdapterName = 'wlo1'
@@ -90,7 +90,7 @@ packagesSpec = [
   'intel-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'mesa', 'vulkan-intel', 'intel-media-driver', 'linux-zen-headers', 'nvidia-open-dkms', 'nvidia-prime', 'lib32-nvidia-utils',
   'cockpit-machines', 'cockpit-storaged', 'virt-install', 'qemu', 'dnsmasq', 'dmidecode', 'edk2-ovmf', 'swtpm', 'virt-install',
   'intel-undervolt', 'i2pd', 'tor', 'ollama-cuda'
-  ]
+]
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
   'paru', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki', 'hexo-cli',
@@ -132,3 +132,27 @@ path = 'NVidia,8'
 [[PROTEUSNOTEBOOK.alsa.pcms]]
 name = 'dnvhdmi3'
 path = 'NVidia,9'
+
+[PROTEUSDESKTOP]
+hibernateResumeOffset = 1844480
+# /dev/mapper/cryptroot LABEL=arch_os
+fstabRootUUID = 'ea9d15ae-15de-4acf-9b45-a87400da2b43'
+# /dev/nvme0n1p1
+fstabBootUUID = '5A7D-FE1E'
+# /dev/mapper/cryptroot LABEL=arch_os
+fstabHomeUUID = 'ea9d15ae-15de-4acf-9b45-a87400da2b43'
+# /dev/mapper/cryptroot LABEL=arch_os
+fstabSnapshotsUUID = 'ea9d15ae-15de-4acf-9b45-a87400da2b43'
+# /dev/mapper/cryptroot LABEL=arch_os
+fstabVarLogUUID = 'ea9d15ae-15de-4acf-9b45-a87400da2b43'
+mainUser = 'proteus'
+wireAdapterName = 'enp2s0'
+packagesSpec = [
+  'intel-ucode', 'mesa', 'vulkan-intel',
+  'docker', 'docker-compose',
+  'intel-undervolt'
+]
+aurChrootPath = '/mnt/aur_chroot'
+packagesAUR = [
+  'libva-intel-driver-hybrid', 'libva-intel-driver-hybrid'
+]

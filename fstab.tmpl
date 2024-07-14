@@ -22,4 +22,14 @@ UUID={{ index . .chezmoi.hostname "fstabVarLogUUID" }} /var/log    btrfs rw,rela
 
 # /dev/nvme0n1p1 LABEL=storage1
 UUID=af7fe924-3168-4268-8617-b4c9867b05d9 /mnt/storage1 btrfs nofail,rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvolid=256,subvol=/@ 0 0
+{{- else if eq .chezmoi.hostname "PROTEUSDESKTOP" }}
+
+# /dev/md127 LABEL=storage3
+UUID=f804317b-3613-47c7-9d46-ab19be6a88a9 /mnt/storage3 btrfs nofail,rw,relatime,compress=zstd:3,space_cache=v2,subvolid=256,subvol=/@ 0 0
+
+# /dev/sdc2 LABEL=storage1
+UUID=5f5fb04a-5e02-40ff-bc7e-b2ae41d50f4b /mnt/storage1 btrfs nofail,rw,relatime,compress=zstd:3,space_cache=v2,subvolid=256,subvol=/@ 0 0
+
+# /dev/sdf2 LABEL=storage2
+UUID=2b58cac6-c037-41f2-a404-c40c529da726 /mnt/storage2 btrfs nofail,rw,relatime,compress=zstd:3,space_cache=v2,subvolid=256,subvol=/@ 0 0
 {{- end -}}
