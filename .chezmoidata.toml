@@ -4,14 +4,15 @@ packages.arch = [
   'base', 'base-devel', 'udisks2', 'rng-tools', 'zram-generator', 'btrfs-progs', 'bash-completion', 'openssh', 'git', 'helix', 'ntfs-3g', 'cifs-utils',
   'bash-language-server', 'marksman', 'taplo', 'texlab', 'python-lsp-server', 'vscode-css-languageserver', 'vscode-json-languageserver', 'yaml-language-server',
   'btop', 'tmux', 'zsh', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'p7zip', 'unrar', 'innoextract', 'dust', 'rsync',
-  'noto-fonts', 'noto-fonts-cjk', 'noto-fonts-emoji'
+  'noto-fonts', 'noto-fonts-cjk', 'noto-fonts-emoji',
+  'tailscale'
 ]
 packages.archExtra = [
   'man', 'tealdeer', 'ripgrep', 'fzf', 'bc', 'usbutils',
   'syncthing', 'hyfetch',
   'pipewire', 'wireplumber', 'pipewire-alsa', 'pipewire-pulse', 'libpulse', 'alsa-utils', 'playerctl',
   'libva-mesa-driver', 'libva-utils', 'vulkan-tools',
-  'ly', 'hyprland', 'hypridle', 'hyprpaper', 'waybar', 'mako', 'xdg-desktop-portal-hyprland', 'rofi-wayland', 'cliphist', 'polkit-gnome', 'power-profiles-daemon', 'qt6ct', 'alacritty', 'grim', 'slurp', 'doublecmd-qt6', 'ffmpegthumbnailer', 'gvfs', 'gvfs-mtp', 'imv',
+  'ly', 'hyprland', 'hypridle', 'hyprpaper', 'hyprlock', 'waybar', 'mako', 'xdg-desktop-portal-hyprland', 'rofi-wayland', 'cliphist', 'polkit-gnome', 'power-profiles-daemon', 'qt6ct', 'alacritty', 'grim', 'slurp', 'doublecmd-qt6', 'ffmpegthumbnailer', 'gvfs', 'gvfs-mtp', 'imv',
   'fcitx5-im', 'fcitx5-mozc', 'fcitx5-chewing', 'fcitx5-chinese-addons', 'fcitx5-pinyin-zhwiki',
   'texlive-latexextra', 'texlive-binextra', 'texlive-mathscience', 'texlive-xetex',
   'firefox', 'profile-sync-daemon', 'mpv', 'zathura', 'zathura-pdf-poppler',
@@ -28,8 +29,8 @@ packagesSpec = [
 mainUser = 'proteus'
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
-  'paru', 'hyprlock-git', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki', 'hexo-cli',
-  'protontricks', 'yazi', 'ueberzugpp'
+  'paru', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki', 'hexo-cli',
+  'protontricks', 'yazi'
 ]
 alsa.defaultCard = 'Generic_1'
 batModel = 'L22M4PF7'
@@ -92,8 +93,8 @@ packagesSpec = [
   ]
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
-  'paru', 'hyprlock-git', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki', 'hexo-cli',
-  'protontricks', 'yazi', 'ueberzugpp'
+  'paru', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki', 'hexo-cli',
+  'protontricks', 'yazi'
 ]
 
 [[PROTEUSNOTEBOOK.alsa.pcms]]
