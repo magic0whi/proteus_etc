@@ -89,7 +89,7 @@ wirelessAdapterName = 'wlo1'
 packagesSpec = [
   'intel-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'mesa', 'vulkan-intel', 'intel-media-driver', 'linux-zen-headers', 'nvidia-open-dkms', 'nvidia-prime', 'lib32-nvidia-utils',
   'cockpit-machines', 'cockpit-storaged', 'virt-install', 'qemu', 'dnsmasq', 'dmidecode', 'edk2-ovmf', 'swtpm', 'virt-install',
-  'intel-undervolt', 'i2pd', 'tor'
+  'intel-undervolt', 'i2pd', 'tor', 'ollama-cuda'
   ]
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
