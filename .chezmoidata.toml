@@ -12,7 +12,7 @@ packages.archExtra = [
   'syncthing', 'hyfetch',
   'pipewire', 'wireplumber', 'pipewire-alsa', 'pipewire-pulse', 'libpulse', 'alsa-utils', 'playerctl',
   'libva-mesa-driver', 'libva-utils', 'vulkan-tools',
-  'ly', 'hyprland', 'hypridle', 'hyprpaper', 'hyprlock', 'waybar', 'mako', 'xdg-desktop-portal-hyprland', 'rofi-wayland', 'cliphist', 'polkit-gnome', 'power-profiles-daemon', 'qt6ct', 'alacritty', 'grim', 'slurp', 'doublecmd-qt6', 'ffmpegthumbnailer', 'gvfs', 'gvfs-mtp', 'imv',
+  'ly', 'hyprland', 'hypridle', 'hyprpaper', 'hyprlock', 'waybar', 'mako', 'xdg-desktop-portal-hyprland', 'xdg-desktop-portal-gtk', 'rofi-wayland', 'cliphist', 'polkit-gnome', 'power-profiles-daemon', 'qt6ct', 'alacritty', 'grim', 'slurp', 'doublecmd-qt6', 'ffmpegthumbnailer', 'gvfs', 'gvfs-mtp', 'imv',
   'fcitx5-im', 'fcitx5-mozc', 'fcitx5-chewing', 'fcitx5-chinese-addons', 'fcitx5-pinyin-zhwiki',
   'texlive-latexextra', 'texlive-binextra', 'texlive-mathscience', 'texlive-xetex',
   'firefox', 'profile-sync-daemon', 'mpv', 'zathura', 'zathura-pdf-poppler',
