@@ -1,3 +1,4 @@
 {{ if and (lookPath "ollama") (eq .chezmoi.hostname "PROTEUSLAPTOP") -}}
+[Service]
 Environment="HSA_OVERRIDE_GFX_VERSION=11.0.2"
 {{- end -}}
