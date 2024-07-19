@@ -24,13 +24,13 @@ packages.archExtra = [
 installExtra = true
 packagesSpec = [
   'amd-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'mesa', 'vulkan-radeon', 'lib32-mesa', 'lib32-vulkan-radeon',
-  'keepassxc', 'blender'
+  'keepassxc', 'blender', 'mpd', 'ario'
 ]
 mainUser = 'proteus'
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
   'paru', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'anki', 'hexo-cli',
-  'protontricks', 'yazi'
+  'protontricks', 'yazi', 'mpdris2'
 ]
 alsa.defaultCard = 'Generic_1'
 batModel = 'L22M4PF7'
