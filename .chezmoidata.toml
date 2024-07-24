@@ -3,7 +3,7 @@ packages.arch = [
   'linux-zen', 'linux-firmware', 'sbctl',
   'base', 'base-devel', 'iptables-nft', 'udisks2', 'rng-tools', 'zram-generator', 'btrfs-progs', 'bash-completion', 'openssh', 'git', 'git-lfs', 'ntfs-3g', 'cifs-utils',
   'helix', 'bash-language-server', 'marksman', 'taplo', 'texlab', 'python-lsp-server', 'vscode-css-languageserver', 'vscode-json-languageserver', 'yaml-language-server',
-  'btop', 'tmux', 'zsh', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'p7zip', 'unrar', 'innoextract', 'dust', 'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf',
+  'btop', 'tmux', 'zsh', 'zsh-completions', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'p7zip', 'unrar', 'innoextract', 'dust', 'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf',
   'noto-fonts', 'noto-fonts-cjk', 'noto-fonts-emoji',
   'tailscale'
 ]
