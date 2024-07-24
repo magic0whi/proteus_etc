@@ -147,10 +147,10 @@ mainUser = 'proteus'
 wireAdapterName = 'enp2s0'
 packagesSpec = [
   'intel-ucode', 'mesa', 'vulkan-intel',
-  'docker', 'docker-compose',
-  'intel-undervolt'
+  'docker', 'docker-compose', 'intel-undervolt'
 ]
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
-  'libva-intel-driver-hybrid', 'libva-intel-driver-hybrid'
+  'libva-intel-driver-hybrid', 'libva-intel-driver-hybrid',
+  'wsdd2'
 ]

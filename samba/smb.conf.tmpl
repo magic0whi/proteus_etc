@@ -1,0 +1,37 @@
+{{ if eq .chezmoi.hostname "PROTEUSDESKTOP" -}}
+[global]
+   server string = Samba Server
+   server role = standalone server
+   logging = systemd
+# Backend to store user information in. New installations should
+# use either tdbsam or ldapsam. smbpasswd is available for backwards
+# compatibility. tdbsam requires no further configuration.
+;   passdb backend = tdbsam
+   server min protocol = SMB3_11
+   disable netbios = yes
+   dns proxy = no
+   server smb encrypt = desired
+   client smb encrypt = desired
+   fruit:copyfile = yes
+   deadtime = 30
+   use sendfile = yes
+   min receivefile size = 16384
+# These scripts are used on a domain controller or stand-alone
+# machine to add or delete corresponding unix accounts
+;  add user script = /usr/sbin/useradd %u
+;  add group script = /usr/sbin/groupadd %g
+;  add machine script = /usr/sbin/adduser -n -g machines -c Machine -d /dev/null -s /bin/false %u
+;  delete user script = /usr/sbin/userdel %u
+;  delete user from group script = /usr/sbin/deluser %u %g
+;  delete group script = /usr/sbin/groupdel %g
+
+# A private directory, usable only by proteus. Note that proteus requires write
+# access to the directory.
+[storage3]
+   comment = Storage 3
+   path = /mnt/storage3
+   valid users = proteus
+   public = no
+   writable = yes
+   printable = no
+{{- end -}}
