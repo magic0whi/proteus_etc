@@ -1,0 +1,36 @@
+#!/usr/bin/nft -f
+# vim:set ts=2 sw=2 et:
+
+# IPv4/IPv6 Simple & Safe firewall ruleset.
+# More examples in /usr/share/nftables/ and /usr/share/doc/nftables/examples/.
+
+destroy table inet filter
+table inet filter {
+{{- if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
+  flowtable virt {
+    hook ingress priority filter
+    devices = { macvtap0 }
+  }
+{{- end }}
+  chain input {
+    type filter hook input priority filter; policy drop;
+    ct state invalid drop comment "early drop of invalid connections"
+    ct state {established, related} accept comment "allow tracked connections"
+    iif lo accept comment "allow from loopback"
+    ip saddr 192.168.15.0/24 accept comment "allow LAN"
+    ip protocol icmp accept comment "allow icmp"
+    meta l4proto ipv6-icmp accept comment "allow icmp v6"
+    tcp dport snapenetio accept comment "allow syncthing"
+    udp dport snapenetio accept comment "allow syncthing"
+    udp dport 21027 accept comment "allow syncthing broadcasts (IPv4) / multicasts (IPv6)"
+    iifname tun0 accept comment "allow sing-box"
+    pkttype host limit rate 5/second counter reject with icmpx type admin-prohibited
+    counter
+  }
+  chain forward {
+    type filter hook forward priority filter; policy drop;
+{{- if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
+    iifname macvtap0 flow offload @virt counter accept
+{{- end }}
+  }
+}
