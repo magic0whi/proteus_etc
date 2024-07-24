@@ -6,11 +6,11 @@ StopWhenUnneeded=yes
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=-/usr/bin/systemctl stop sing-box.service yggdrasil.service
+ExecStart=-/usr/bin/systemctl stop sing-box.service
 {{- if eq .chezmoi.hostname "PROTEUSLAPTOP" }}
 ExecStart=-/usr/bin/systemctl stop iwd.service bluetooth.service
-ExecStart=-/usr/bin/modprobe -r mt7921e btusb snd_hda_scodec_tas2781_i2c snd_soc_tas2781_fmwlib snd_soc_tas2781_comlib thunderbolt
-ExecStop=-/usr/bin/sh -c 'modprobe btusb; modprobe mt7921e; modprobe snd_hda_scodec_tas2781_i2c; modprobe thunderbolt'
+ExecStart=-/usr/bin/modprobe -r mt7921e btmtk btusb snd_hda_scodec_tas2781_i2c snd_soc_tas2781_fmwlib snd_soc_tas2781_comlib thunderbolt
+ExecStop=-/usr/bin/sh -c 'modprobe btmtk; modprobe btusb; modprobe mt7921e; modprobe snd_hda_scodec_tas2781_i2c; modprobe thunderbolt'
 ExecStop=-/usr/bin/systemctl start iwd.service bluetooth.service
 {{- else if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
 ExecStart=-/usr/bin/systemctl stop iwd.service bluetooth.service
@@ -20,7 +20,7 @@ ExecStart=-/usr/bin/sh -c 'virsh -c qemu:///system list --state-running --name |
 ExecStart=-/usr/bin/sh -c '/etc/custom_files/custom-sleep-actions.sh'
 ExecStop=-/usr/bin/systemctl start iwd.service bluetooth.service
 {{- end }}
-ExecStop=-/usr/bin/systemctl start sing-box.service yggdrasil.service
+ExecStop=-/usr/bin/systemctl start sing-box.service
 
 [Install]
 WantedBy=sleep.target
