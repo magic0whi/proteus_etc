@@ -20,6 +20,7 @@ table inet filter {
     ip saddr 192.168.15.0/24 accept comment "allow LAN"
     ip protocol icmp accept comment "allow icmp"
     meta l4proto ipv6-icmp accept comment "allow icmp v6"
+    iifname tailscale0 tcp dport ssh accept comment "allow ssh (from tailscale)"
     tcp dport snapenetio accept comment "allow syncthing"
     udp dport snapenetio accept comment "allow syncthing"
     udp dport 21027 accept comment "allow syncthing broadcasts (IPv4) / multicasts (IPv6)"
