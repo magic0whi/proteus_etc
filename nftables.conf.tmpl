@@ -37,6 +37,9 @@ table inet filter {
     oifname "tailscale0*" counter accept comment "allow tailscale forward"
 {{- if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
     iifname macvtap0 flow offload @virt counter accept
+{{- else if eq .chezmoi.hostname "PROTEUSDESKTOP" }}
+    ip saddr 172.17.0.0/12 counter accept comment "Allow docker containers' packages go outside"
+    ip daddr 172.17.0.0/12 counter accept comment "Allow packages go into docker containers"
 {{- end }}
   }
 }
