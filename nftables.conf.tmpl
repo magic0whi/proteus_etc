@@ -27,6 +27,7 @@ table inet filter {
     udp dport snapenetio accept comment "allow syncthing"
     udp dport 21027 accept comment "allow syncthing broadcasts (IPv4) / multicasts (IPv6)"
     iifname tun0 accept comment "allow sing-box"
+    pkttype host limit rate 5/second counter reject with icmpx type admin-prohibited comment "Limit ping speed from other Internet"
     counter
   }
   chain forward {
