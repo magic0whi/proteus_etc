@@ -4,10 +4,19 @@ Name={{ index . .chezmoi.hostname "wireAdapterName" }}
 
 [Network]
 {{- if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
-IPv6AcceptRA=no
 MACVTAP=macvtap0
+DHCP=no
+IPv6AcceptRA=no
+LinkLocalAddressing=no
+MulticastDNS=no
+LLMNR=no
 {{- else }}
 DHCP=yes
+
+[DHCPv4]
+RouteMetric=10
+
+[DHCPv6]
 RouteMetric=10
 
 [IPv6AcceptRA]
