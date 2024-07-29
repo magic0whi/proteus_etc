@@ -28,7 +28,7 @@ packagesSpec = [
 mainUser = 'proteus'
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
-  'paru', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'mpdris2',
+  'paru', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'mpdris2', 'cmake-language-server',
   'anki', 'protontricks'
 ]
 alsa.defaultCard = 'Generic_1'

@@ -18,6 +18,8 @@ table inet filter {
     ct state {established, related} accept comment "allow tracked connections"
     iif lo accept comment "allow from loopback"
     ip saddr 192.168.15.0/24 accept comment "allow from LAN"
+    ip6 saddr fe80::/16 accept comment "allow from Link-Local (IPv6)"
+    ip6 saddr fd66:06e5:aebe::/48 accept comment "allow from ULA-Prefix (IPv6)"
     ip protocol icmp accept comment "allow icmp"
     meta l4proto ipv6-icmp accept comment "allow icmp v6"
     meta protocol ip6 udp dport dhcpv6-client accept comment "allow DHCPv6"
