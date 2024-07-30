@@ -6,12 +6,6 @@
 
 destroy table inet filter
 table inet filter {
-{{- if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
-  flowtable virt {
-    hook ingress priority filter
-    devices = { macvtap0 }
-  }
-{{- end }}
   chain input {
     type filter hook input priority filter; policy drop;
     ct state invalid drop comment "early drop of invalid connections"
@@ -37,9 +31,7 @@ table inet filter {
     iifname "tailscale0*" counter meta mark set meta mark & 0xffff04ff | 0x00000400
     meta mark & 0x0000ff00 == 0x00000400 counter accept comment "allow tailscale forward"
     oifname "tailscale0*" counter accept comment "allow tailscale forward"
-{{- if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
-    iifname macvtap0 flow offload @virt counter accept
-{{- else if eq .chezmoi.hostname "PROTEUSDESKTOP" }}
+{{- if eq .chezmoi.hostname "PROTEUSDESKTOP" }}
     ip saddr 172.17.0.0/12 counter accept comment "Allow docker containers' packages go outside"
     ip daddr 172.17.0.0/12 counter accept comment "Allow packages go into docker containers"
 {{- end }}
