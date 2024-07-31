@@ -1,5 +1,6 @@
 BASE dc=tailba6c3f,dc=ts,dc=net
 TLS_CACERT /etc/custom_files/slapdcert.pem
+SUDOERS_BASE ou=sudoers,dc=tailba6c3f,dc=ts,dc=net
 {{- if eq .chezmoi.hostname "PROTEUSDESKTOP" }}
 URI ldap://localhost
 {{- else if eq .chezmoi.hostname "PROTEUSLAPTOP" "PROTEUSNOTEBOOK" }}
