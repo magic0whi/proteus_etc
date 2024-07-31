@@ -33,5 +33,7 @@ password   optional                    pam_permit.so
 -session   optional                    pam_systemd_home.so
 session    required                    pam_limits.so
 session    required                    pam_unix.so
+{{ if lookPath "sssd" -}}
 session optional pam_sss.so
+{{- end }}
 session    optional                    pam_permit.so
