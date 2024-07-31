@@ -1,4 +1,7 @@
 #%PAM-1.0
+{{- if lookPath "docker" }}
+auth required pam_group.so
+{{- end }}
 auth            sufficient      pam_rootok.so
 {{- if lookPath "sssd" }}
 auth sufficient pam_sss.so forward_pass
