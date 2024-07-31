@@ -1,8 +1,8 @@
 BASE dc=tailba6c3f,dc=ts,dc=net
-URI ldap://localhost
-#TLS_REQCERT allow
 {{- if eq .chezmoi.hostname "PROTEUSDESKTOP" }}
+URI ldap://localhost
 TLS_CACERT /mnt/storage3/sync-work/3keys/slapdcert.pem
 {{- else if eq .chezmoi.hostname "PROTEUSLAPTOP" "PROTEUSNOTEBOOK" }}
-TLS_CACERT /home/{{ index . .chezmoi.hostname "mainUser" }}/3keys/slapdcert.pem
+URI ldaps://proteusdesktop.tailba6c3f.ts.net:636
+TLS_CACERT /home/{{ index . .chezmoi.hostname "mainUser" }}/sync-work/3keys/slapdcert.pem
 {{- end -}}

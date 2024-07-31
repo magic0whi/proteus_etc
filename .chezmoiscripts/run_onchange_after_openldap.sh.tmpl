@@ -1,4 +1,4 @@
-{{ if eq (output "systemctl" "is-enabled" "slapd.service" | trim) "enabled" -}}
+{{ if eq (output "sh" "-c" "systemctl is-enabled slapd.service || true" | trim) "enabled" -}}
 #!/bin/sh
 set -eufo pipefail
 systemctl stop slapd.service
@@ -11,5 +11,5 @@ chown -R root:ldap /etc/openldap/slapd.d/
 find /etc/openldap/slapd.d -type f -exec chmod 0640 {} \+
 systemctl start slapd.service
 # base.ldif hash : {{ print .chezmoi.sourceDir "/openldap/encrypted_base.ldif.tmpl.asc" | include | decrypt | sha256sum }}
-ldapadd -D'cn=Manager,dc=tailba6c3f,dc=ts,dc=net' -y /mnt/storage3/sync-work/3keys/slapd.passwd -f /etc/openldap/base.ldif
+ldapadd -D'cn=Manager,dc=tailba6c3f,dc=ts,dc=net' -y /mnt/storage3/sync-work/3keys/private/slapd.passwd -f /etc/openldap/base.ldif
 {{- end -}}
