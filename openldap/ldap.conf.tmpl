@@ -1,8 +1,7 @@
 BASE dc=tailba6c3f,dc=ts,dc=net
+TLS_CACERT /etc/custom_files/slapdcert.pem
 {{- if eq .chezmoi.hostname "PROTEUSDESKTOP" }}
 URI ldap://localhost
-TLS_CACERT /mnt/storage3/sync-work/3keys/slapdcert.pem
 {{- else if eq .chezmoi.hostname "PROTEUSLAPTOP" "PROTEUSNOTEBOOK" }}
 URI ldaps://proteusdesktop.tailba6c3f.ts.net:636
-TLS_CACERT /home/{{ index . .chezmoi.hostname "mainUser" }}/sync-work/3keys/slapdcert.pem
 {{- end -}}
