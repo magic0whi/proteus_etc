@@ -1,0 +1,4 @@
+{{ if eq (output "systemctl" "is-enabled" "slapd.service" | trim) "enabled" -}}
+SLAPD_URLS="ldap://127.0.0.1/ ldap://[::1] ldaps:///"
+SLAPD_OPTIONS=
+{{- end -}}
