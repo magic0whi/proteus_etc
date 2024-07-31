@@ -4,8 +4,8 @@ set -eufo pipefail
 tempfile="$(mktemp)"
 trap 'rm "$tempfile"' EXIT
 cat > "$tempfile"
-sed -i 's/^\(passwd: files systemd\)/\1 sss/' "$tempfile"
-sed -i 's/^\(group: files \[SUCCESS=merge\] systemd\)/\1 sss/' "$tempfile"
-sed -i 's/^\(shadow: files systemd\)/\1 sss\nsudoers: files sss/' "$tempfile"
+sed -i 's/^\(passwd: files systemd$\)/\1 sss/' "$tempfile"
+sed -i 's/^\(group: files \[SUCCESS=merge\] systemd$\)/\1 sss/' "$tempfile"
+sed -i 's/^\(shadow: files systemd$\)/\1 sss\nsudoers: files sss/' "$tempfile"
 cat "$tempfile"
 {{- end }}
