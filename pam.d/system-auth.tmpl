@@ -3,9 +3,6 @@
 auth       required                    pam_faillock.so      preauth
 # Optionally use requisite above if you do not want to prompt for the password
 # on locked accounts.
-{{ if lookPath "docker" -}}
-auth required pam_group.so
-{{ end -}}
 {{ if lookPath "sssd" -}}
 auth [success=3 default=ignore] pam_sss.so forward_pass
 {{ end -}}

@@ -15,9 +15,8 @@ chpass_provider = ldap
 
 ldap_uri = ldaps://proteusdesktop.tailba6c3f.ts.net:636
 ldap_search_base = dc=tailba6c3f,dc=ts,dc=net
-ldap_sudo_search_base = ou=sudoers,dc=tailba6c3f,dc=ts,dc=net
+ldap_sudo_search_base = ou=Sudoers,dc=tailba6c3f,dc=ts,dc=net
 ldap_tls_reqcert = demand
 ldap_network_timeout = 2
 ldap_schema = rfc2307bis
-ldap_group_member = uniqueMember
 {{- end -}}
