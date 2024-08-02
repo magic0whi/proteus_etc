@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eufo pipefail
+# /etc/locale.gen hash: {{ include "/etc/locale.gen" | sha256sum }}
+locale-gen
+# /etc/ca-certificates/trust-source/anchors/proteus_ca.pem: {{ include "/etc/ca-certificates/trust-source/anchors/proteus_ca.pem" | sha256sum }}
+update-ca-trust
