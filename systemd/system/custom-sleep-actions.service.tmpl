@@ -7,12 +7,12 @@ StopWhenUnneeded=yes
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=-/usr/bin/systemctl stop sing-box.service
-{{- if eq .chezmoi.hostname "PROTEUSLAPTOP" }}
+{{ if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
 ExecStart=-/usr/bin/systemctl stop iwd.service bluetooth.service
 ExecStart=-/usr/bin/modprobe -r mt7921e btmtk btusb snd_hda_scodec_tas2781_i2c snd_soc_tas2781_fmwlib snd_soc_tas2781_comlib thunderbolt
 ExecStop=-/usr/bin/sh -c 'modprobe btmtk; modprobe btusb; modprobe mt7921e; modprobe snd_hda_scodec_tas2781_i2c; modprobe thunderbolt'
 ExecStop=-/usr/bin/systemctl start iwd.service bluetooth.service
-{{- else if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
+{{- else if eq .chezmoi.hostname "PROTEUSNOTEBOOK" -}}
 ExecStart=-/usr/bin/systemctl stop iwd.service bluetooth.service
 # Force stop running virtual machines
 ExecStart=-/usr/bin/sh -c 'virsh -c qemu:///system list --state-running --name | xargs -L1 virsh -c qemu:///system destroy'
