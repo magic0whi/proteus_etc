@@ -28,8 +28,8 @@ packagesSpec = [
 mainUser = 'proteus'
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
-  'paru', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'mpdris2', 'cmake-language-server',
-  'anki', 'protontricks'
+  'paru', 'sing-box', 'anki', 'protontricks', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git',
+  'mpdris2'
 ]
 alsa.defaultCard = 'Generic_1'
 batModel = 'L22M4PF7'
@@ -91,8 +91,7 @@ packagesSpec = [
 ]
 aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
-  'paru', 'sing-box', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi',
-  'anki', 'protontricks'
+  'paru', 'sing-box', 'anki', 'protontricks', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git'
 ]
 
 [[PROTEUSNOTEBOOK.alsa.pcms]]
