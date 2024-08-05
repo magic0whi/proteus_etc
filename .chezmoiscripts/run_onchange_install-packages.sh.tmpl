@@ -17,7 +17,7 @@ pacman -S --needed --noconfirm{{ range .COMMON.packages.archExtra }}{{ print " "
 RAMDISK_SIZE=$(($(free -m | awk '/Mem/ { print $7 }')/2))
 mount --mkdir -t tmpfs -o defaults,size=${RAMDISK_SIZE}M tmpfs {{ .COMMON.aurChrootPath }}
 
-trap 'umount {{ .COMMON.aurChrootPath }}/overlay {{ .COMMON.aurChrootPath }}; rm /etc/sudoers.d/03_aur_tmp' EXIT
+trap 'umount {{ .COMMON.aurChrootPath }}/overlay {{ .COMMON.aurChrootPath }}' EXIT
 
 dd if=/dev/zero of={{ .COMMON.aurChrootPath }}/ramdisk status=progress bs=1M count=$RAMDISK_SIZE
 mkfs.btrfs -m single -f {{ .COMMON.aurChrootPath }}/ramdisk
