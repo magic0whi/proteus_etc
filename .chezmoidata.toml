@@ -17,16 +17,16 @@ packages.archExtra = [
   'firefox', 'profile-sync-daemon', 'mpv', 'zathura', 'zathura-pdf-poppler',
   'imv', 'gimp', 'obs-studio', 'steam', 'lutris', 'telegram-desktop', 'discord'
 ]
+mainUser = 'proteus'
+aurChrootPath = '/mnt/aur_chroot'
 
 [PROTEUSLAPTOP]
 installExtra = true
 packagesSpec = [
   'amd-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'mesa', 'vulkan-radeon', 'lib32-mesa', 'lib32-vulkan-radeon',
   'yarn', 'mpd',
-  'keepassxc', 'blender', 'ario'
+  'blueman', 'keepassxc', 'blender', 'ario'
 ]
-mainUser = 'proteus'
-aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
   'paru', 'sing-box', 'anki', 'protontricks', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git',
   'mpdris2'
@@ -82,16 +82,15 @@ fstabHomeUUID = '5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
 fstabSnapshotsUUID = '5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
 # /dev/mapper/cryptroot LABEL=arch_os
 fstabVarLogUUID = '5e2f7a9c-1198-4135-a9c9-a9cf689f531d'
-mainUser = 'proteus'
 wireAdapterName = 'enp46s0'
 wirelessAdapterName = 'wlo1'
 packagesSpec = [
   'intel-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'mesa', 'vulkan-intel', 'intel-media-driver', 'linux-zen-headers', 'nvidia-open-dkms', 'nvidia-prime', 'lib32-nvidia-utils',
   'cockpit-machines', 'cockpit-storaged', 'virt-install', 'qemu', 'dnsmasq', 'dmidecode', 'edk2-ovmf', 'swtpm', 'virt-install', 'intel-undervolt', 'i2pd', 'tor'
 ]
-aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
-  'paru', 'sing-box', 'anki', 'protontricks', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git'
+  'paru', 'sing-box', 'anki', 'protontricks', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git',
+  'blueman'
 ]
 
 [[PROTEUSNOTEBOOK.alsa.pcms]]
@@ -142,13 +141,11 @@ fstabHomeUUID = 'ea9d15ae-15de-4acf-9b45-a87400da2b43'
 fstabSnapshotsUUID = 'ea9d15ae-15de-4acf-9b45-a87400da2b43'
 # /dev/mapper/cryptroot LABEL=arch_os
 fstabVarLogUUID = 'ea9d15ae-15de-4acf-9b45-a87400da2b43'
-mainUser = 'proteus'
 wireAdapterName = 'enp2s0'
 packagesSpec = [
   'intel-ucode', 'mesa', 'vulkan-intel',
   'docker', 'docker-compose', 'intel-undervolt'
 ]
-aurChrootPath = '/mnt/aur_chroot'
 packagesAUR = [
   'libva-intel-driver-hybrid', 'libva-intel-driver-hybrid',
   'wsdd2'

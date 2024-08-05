@@ -15,23 +15,16 @@ pacman -S --needed --noconfirm{{ range .COMMON.packages.archExtra }}{{ print " "
 
 # Install AUR packages
 RAMDISK_SIZE=$(($(free -m | awk '/Mem/ { print $7 }')/2))
-mount --mkdir -t tmpfs -o defaults,size=${RAMDISK_SIZE}M tmpfs {{ index . .chezmoi.hostname "aurChrootPath" }}
+mount --mkdir -t tmpfs -o defaults,size=${RAMDISK_SIZE}M tmpfs {{ .COMMON.aurChrootPath }}
 
-trap 'umount {{ index . .chezmoi.hostname "aurChrootPath" }}/overlay {{ index . .chezmoi.hostname "aurChrootPath" }}; rm /etc/sudoers.d/03_aur_tmp' EXIT
+trap 'umount {{ .COMMON.aurChrootPath }}/overlay {{ .COMMON.aurChrootPath }}; rm /etc/sudoers.d/03_aur_tmp' EXIT
 
-dd if=/dev/zero of={{ index . .chezmoi.hostname "aurChrootPath" }}/ramdisk status=progress bs=1M count=$RAMDISK_SIZE
-mkfs.btrfs -m single -f {{ index . .chezmoi.hostname "aurChrootPath" }}/ramdisk
-mount --mkdir -t btrfs -o loop,compress=zstd {{ index . .chezmoi.hostname "aurChrootPath" }}/ramdisk {{ index . .chezmoi.hostname "aurChrootPath" }}/overlay
-chown {{ index . .chezmoi.hostname "mainUser" }}: {{ index . .chezmoi.hostname "aurChrootPath" }}/overlay
+dd if=/dev/zero of={{ .COMMON.aurChrootPath }}/ramdisk status=progress bs=1M count=$RAMDISK_SIZE
+mkfs.btrfs -m single -f {{ .COMMON.aurChrootPath }}/ramdisk
+mount --mkdir -t btrfs -o loop,compress=zstd {{ .COMMON.aurChrootPath }}/ramdisk {{ .COMMON.aurChrootPath }}/overlay
+chown {{ .COMMON.mainUser }}: {{ .COMMON.aurChrootPath }}/overlay
 
-# Note: paru hardcoded 'sudo install -dm755 $CHROOT'
-# https://github.com/Morganamilo/paru/blob/5355012aa3529014145b8940dd0c62b21e53095a/src/chroot.rs#L43
-cat <<EOF > /etc/sudoers.d/03_aur_tmp
-{{ index . .chezmoi.hostname "mainUser" }} ALL = (ALL) NOPASSWD: SETENV: /usr/bin/makechrootpkg
-{{ index . .chezmoi.hostname "mainUser" }} ALL = (ALL) NOPASSWD: /usr/bin/arch-nspawn, /usr/bin/install, /usr/bin/mkarchroot, /usr/bin/pacman
-EOF
-
-sudo -u {{ index . .chezmoi.hostname "mainUser" }} paru -S --needed --noconfirm --chroot={{ index . .chezmoi.hostname "aurChrootPath" }}/overlay{{ range index . .chezmoi.hostname "packagesAUR" }}{{ print " " . }}{{ end }}
+sudo -u {{ .COMMON.mainUser }} paru -S --needed --noconfirm --chroot={{ .COMMON.aurChrootPath }}/overlay{{ range index . .chezmoi.hostname "packagesAUR" }}{{ print " " . }}{{ end }}
 {{- end }}
 {{- end }}
 {{- end -}}
