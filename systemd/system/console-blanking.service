@@ -1,5 +1,6 @@
 [Unit]
 Description=Enable virtual console blanking and poweroff
+After=display-manager.service
 
 [Service]
 Type=oneshot
