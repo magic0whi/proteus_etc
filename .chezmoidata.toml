@@ -24,7 +24,7 @@ aurChrootPath = '/mnt/aur_chroot'
 installExtra = true
 packagesSpec = [
   'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'blueman',
-  'amd-ucode', 'vulkan-radeon', 'lib32-vulkan-radeon', 'linux-lts', 'yarn', 'mpd', 'keepassxc', 'blender', 'ario'
+  'amd-ucode', 'vulkan-radeon', 'lib32-vulkan-radeon', 'yarn', 'mpd', 'keepassxc', 'blender', 'ario'
 ]
 packagesAUR = [
   'paru', 'sing-box', 'anki', 'protontricks', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git',
