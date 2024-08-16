@@ -10,7 +10,7 @@ packages.arch = [
 packages.archExtra = [
   'bc', 'usbutils', 'hyfetch', 'img2pdf', 'syncthing',
   'pipewire', 'wireplumber', 'pipewire-alsa', 'pipewire-pulse', 'libpulse', 'alsa-utils', 'playerctl',
-  'mesa', 'lib32-mesa', 'libva-mesa-driver', 'libva-utils', 'vulkan-tools',
+  'mesa', 'lib32-mesa', 'libva-mesa-driver', 'libva-utils', 'vulkan-tools', 'blas-openblas',
   'ly', 'hyprland', 'hypridle', 'hyprpaper', 'hyprlock', 'waybar', 'mako', 'xdg-desktop-portal-hyprland', 'xdg-desktop-portal-gtk', 'rofi-wayland', 'cliphist', 'polkit-gnome', 'power-profiles-daemon', 'qt6ct', 'alacritty', 'grim', 'slurp', 'nautilus', 'ffmpegthumbnailer', 'gvfs', 'gvfs-mtp',
   'fcitx5-im', 'fcitx5-mozc', 'fcitx5-chewing', 'fcitx5-chinese-addons', 'fcitx5-pinyin-zhwiki',
   'texlive-latexextra', 'texlive-binextra', 'texlive-mathscience', 'texlive-xetex',
