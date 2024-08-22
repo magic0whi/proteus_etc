@@ -8,7 +8,7 @@ packages.arch = [
   'tailscale'
 ]
 packages.archExtra = [
-  'bc', 'usbutils', 'hyfetch', 'img2pdf', 'syncthing',
+  'bc', 'usbutils', 'hyfetch', 'img2pdf', 'syncthing', 'keepassxc',
   'pipewire', 'wireplumber', 'pipewire-alsa', 'pipewire-pulse', 'libpulse', 'alsa-utils', 'playerctl',
   'mesa', 'lib32-mesa', 'libva-mesa-driver', 'libva-utils', 'vulkan-tools', 'blas-openblas',
   'ly', 'hyprland', 'hypridle', 'hyprpaper', 'hyprlock', 'waybar', 'mako', 'xdg-desktop-portal-hyprland', 'xdg-desktop-portal-gtk', 'rofi-wayland', 'cliphist', 'polkit-gnome', 'power-profiles-daemon', 'qt6ct', 'alacritty', 'grim', 'slurp', 'nautilus', 'ffmpegthumbnailer', 'gvfs', 'gvfs-mtp',
@@ -18,7 +18,7 @@ packages.archExtra = [
   'imv', 'gimp', 'obs-studio', 'steam', 'lutris', 'telegram-desktop', 'discord'
 ]
 mainUser = 'proteus'
-aurChrootPath = '/mnt/aur_chroot'
+aurChrootPath = '/tmp/aur_chroot'
 
 [PROTEUSLAPTOP]
 installExtra = true

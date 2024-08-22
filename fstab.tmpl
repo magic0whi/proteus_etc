@@ -16,7 +16,7 @@ UUID={{ index . .chezmoi.hostname "fstabVarLogUUID" }} /var/log    btrfs rw,rela
 {{- if eq .chezmoi.hostname "PROTEUSLAPTOP" "PROTEUSNOTEBOOK" }}
 
 # Samba (LAN)
-//proteusdesktop/storage3 /mnt/smb_share cifs nofail,seal,credentials=/home/proteus/sync-work/3keys/private/proteus.smb,rw,relatime,vers=3.1.1,cache=strict,uid=1000,noforceuid,gid=1000,noforcegid,file_mode=0644,dir_mode=0755,iocharset=utf8,soft,nounix,serverino,mapposix,reparse=nfs,rsize=4194304,wsize=4194304,bsize=1048576,retrans=1,echo_interval=60,actimeo=1,closetimeo=1 0 0
+//proteusdesktop/storage3 /mnt/smb_share cifs nofail,seal,credentials=/mnt/overlay/keys/private/proteus.smb,rw,relatime,vers=3.1.1,cache=strict,uid=1000,noforceuid,gid=1000,noforcegid,file_mode=0644,dir_mode=0755,iocharset=utf8,soft,nounix,serverino,mapposix,reparse=nfs,rsize=4194304,wsize=4194304,bsize=1048576,retrans=1,echo_interval=60,actimeo=1,closetimeo=1 0 0
 {{- end }}
 {{- if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
 

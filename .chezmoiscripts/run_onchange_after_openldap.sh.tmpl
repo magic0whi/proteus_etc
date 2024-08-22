@@ -5,11 +5,11 @@ systemctl stop slapd.service
 rm -r /etc/openldap/slapd.d /var/lib/openldap/openldap-data
 install -m 0770 -o root -g ldap -d /etc/openldap/slapd.d
 install -m 0700 -o ldap -g ldap -d /var/lib/openldap/openldap-data
-# config.ldif hash : {{ print .chezmoi.sourceDir "/openldap/encrypted_config.ldif.tmpl.asc" | include | decrypt | sha256sum }}
+# config.ldif hash : {{ include "/etc/openldap/config.ldif" | sha256sum }}
 slapadd -n 0 -F /etc/openldap/slapd.d/ -l /etc/openldap/config.ldif
 chown -R root:ldap /etc/openldap/slapd.d/
 find /etc/openldap/slapd.d -type f -exec chmod 0640 {} \+
 systemctl start slapd.service
-# base.ldif hash : {{ print .chezmoi.sourceDir "/openldap/encrypted_base.ldif.tmpl.asc" | include | decrypt | sha256sum }}
-ldapadd -D'cn=Manager,dc=tailba6c3f,dc=ts,dc=net' -y /mnt/storage3/sync-work/3keys/private/slapd.passwd -f /etc/openldap/base.ldif
+# base.ldif hash : {{ include "/etc/openldap/base.ldif" | sha256sum }}
+ldapadd -D'cn=Manager,dc=tailba6c3f,dc=ts,dc=net' -y /mnt/overlay/keys/private/slapd.passwd -f /etc/openldap/base.ldif
 {{- end -}}
