@@ -1,0 +1,43 @@
+{{ if lookPath "/usr/bin/lighttpd" -}}
+server.username = "http"
+server.groupname = "http"
+server.document-root = "/srv/http"
+dir-listing.activate = "enable"
+index-file.names = ( "index.html" )
+server.modules += ("mod_redirect", "mod_setenv", "mod_openssl", "mod_deflate")
+
+# Performance tuning
+server.network-backend = "sendfile"
+deflate.mimetypes = ("text/plain", "text/html")
+deflate.allowed-encodings = ("brotli", "gzip", "deflate")
+deflate.cache-dir = "/tmp/lighttpd/cache"
+
+
+# SSL
+ssl.privkey = "/mnt/overlay/keys/private/proteus_ca.key.pem"
+ssl.pemfile = "/mnt/overlay/keys/proteus_server.pem"
+ssl.openssl.ssl-conf-cmd = ("MinProtocol" => "TLSv1.3")
+ssl.openssl.ssl-conf-cmd += ("Options" => "-ServerPreference")
+$SERVER["socket"] == "[::]:80" { }
+# lighttpd 1.4.56 and later will inherit ssl.* from the global scope if
+# $SERVER["socket"] contains ssl.engine = "enable" and no other ssl.* options
+# (to avoid having to repeat ssl.* directives in both ":443" and "[::]:443")
+$SERVER["socket"] ==     ":443" { ssl.engine = "enable" }
+$SERVER["socket"] == "[::]:443" { ssl.engine = "enable" }
+
+$HTTP["scheme"] == "http" { url.redirect = ("" => "https://${url.authority}${url.path}${qsa}") }
+$HTTP["scheme"] == "https" {
+  setenv.add-response-header = (
+    "Strict-Transport-Security" => "max-age=63072000; includeSubDomains", # Two years
+    "X-XSS-Protection" => "1; mode=block",
+    "X-Content-Type-Options" => "nosniff",
+    "Referrer-Policy" => "no-referrer-when-downgrade",
+    "Content-Security-Policy" => "default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline'; frame-ancestors 'self';",
+    "Permissions-Policy" => "interest-cohort=()"
+  )
+}
+
+# OCSP stapling (input file must be maintained by external script)
+# https://redmine.lighttpd.net/projects/lighttpd/wiki/Docs_SSL#OCSP-Stapling
+# ssl.stapling-file = "/path/to/cert-staple.der"
+{{ end -}}

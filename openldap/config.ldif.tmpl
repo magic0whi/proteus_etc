@@ -1,0 +1,44 @@
+{{ if eq (output "sh" "-c" "systemctl is-enabled slapd.service || true" | trim) "enabled" -}}
+dn: cn=config
+objectClass: olcGlobal
+cn: config
+olcArgsFile: /run/openldap/slapd.args
+olcPidFile: /run/openldap/slapd.pid
+olcTLSCertificateFile: /mnt/overlay/keys/proteus_server.pem
+olcTLSCertificateKeyFile: /mnt/overlay/keys/private/proteus_ca.key.pem
+olcTLSCipherSuite: DEFAULT:!kRSA:!kDHE
+olcTLSProtocolMin: 3.4
+
+dn: cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: schema
+
+include: file:///etc/openldap/schema/core.ldif
+include: file:///etc/openldap/schema/cosine.ldif
+include: file:///etc/openldap/schema/rfc2307bis.ldif
+include: file:///etc/openldap/schema/inetorgperson.ldif
+include: file:///usr/share/doc/sudo/schema.olcSudo
+
+dn: olcDatabase=config,cn=config
+objectClass: olcDatabaseConfig
+olcDatabase: config
+olcRootDN: cn=Manager,dc=tailba6c3f,dc=ts,dc=net
+
+# Memory-Mapped DB
+dn: olcDatabase=mdb,cn=config
+objectClass: olcDatabaseConfig
+objectClass: olcMdbConfig
+olcDatabase: mdb
+# DN suffix of queries that will be passwd to this backend database
+olcSuffix: dc=tailba6c3f,dc=ts,dc=net
+olcRootDN: cn=Manager,dc=tailba6c3f,dc=ts,dc=net
+olcRootPW: {{ (keepassxc "chezmoi/openldap").Password }}
+olcDbDirectory: /var/lib/openldap/openldap-data
+olcAccess: to attrs=userPassword,shadowLastChange,photo by self write by anonymous auth by dn.base="cn=Manager,dc=tailba6c3f,dc=ts,dc=net" write by * none
+olcAccess: to * by self read by dn.base="cn=Manager,dc=tailba6c3f,dc=ts,dc=net" write by * read
+# Indexes are pre-cached queries result that prevent full scope search
+olcDbIndex: objectClass eq
+olcDbIndex: uid pres,eq
+olcDbIndex: cn,sn,mail pres,sub,eq
+olcDbIndex: dc eq
+{{- end -}}
