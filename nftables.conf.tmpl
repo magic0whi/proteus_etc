@@ -29,7 +29,7 @@ table inet filter {
     iifname "tailscale0*" counter meta mark set meta mark & 0xffff04ff | 0x00000400
     meta mark & 0x0000ff00 == 0x00000400 counter accept comment "allow tailscale forward"
     oifname "tailscale0*" counter accept comment "allow tailscale forward"
-{{- if eq .chezmoi.hostname "PROTEUSDESKTOP" }}
+{{- if eq .chezmoi.hostname "PROTEUSDESKTOP" "PROTEUSLAPTOP" }}
     ip saddr 172.17.0.0/12 counter accept comment "Allow docker containers' packages go outside"
     ip daddr 172.17.0.0/12 counter accept comment "Allow packages go into docker containers"
 {{- end }}

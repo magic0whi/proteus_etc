@@ -11,7 +11,7 @@ packages.archExtra = [
   'bc', 'usbutils', 'hyfetch', 'img2pdf', 'syncthing', 'keepassxc',
   'pipewire', 'wireplumber', 'pipewire-alsa', 'pipewire-pulse', 'libpulse', 'alsa-utils', 'playerctl',
   'mesa', 'lib32-mesa', 'libva-mesa-driver', 'libva-utils', 'vulkan-tools', 'blas-openblas',
-  'ly', 'hyprland', 'hypridle', 'hyprpaper', 'hyprlock', 'waybar', 'mako', 'xdg-desktop-portal-hyprland', 'xdg-desktop-portal-gtk', 'rofi-wayland', 'cliphist', 'polkit-gnome', 'power-profiles-daemon', 'qt6ct', 'alacritty', 'grim', 'slurp', 'nautilus', 'ffmpegthumbnailer', 'gvfs', 'gvfs-mtp',
+  'ly', 'hyprland', 'hypridle', 'hyprpaper', 'hyprlock', 'waybar', 'mako', 'xdg-desktop-portal-hyprland', 'xdg-desktop-portal-gtk', 'rofi-wayland', 'cliphist', 'polkit-gnome', 'power-profiles-daemon', 'qt6ct', 'alacritty', 'grim', 'slurp', 'nautilus', 'ffmpegthumbnailer', 'gvfs', 'gvfs-mtp', 'ttf-nerd-fonts-symbols',
   'fcitx5-im', 'fcitx5-mozc', 'fcitx5-chewing', 'fcitx5-chinese-addons', 'fcitx5-pinyin-zhwiki',
   'texlive-latexextra', 'texlive-binextra', 'texlive-mathscience', 'texlive-xetex',
   'firefox', 'profile-sync-daemon', 'mpv', 'zathura', 'zathura-pdf-poppler',
@@ -27,7 +27,7 @@ packagesSpec = [
   'amd-ucode', 'vulkan-radeon', 'lib32-vulkan-radeon', 'yarn', 'mpd', 'keepassxc', 'blender', 'ario'
 ]
 packagesAUR = [
-  'paru', 'sing-box', 'anki', 'protontricks', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git',
+  'paru', 'sing-box', 'anki', 'protontricks', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git', 'moonlight-qt',
   'mpdris2'
 ]
 alsa.defaultCard = 'Generic_1'
@@ -88,7 +88,7 @@ packagesSpec = [
   'intel-ucode', 'vulkan-intel', 'intel-media-driver', 'linux-zen-headers', 'nvidia-open-dkms', 'nvidia-prime', 'lib32-nvidia-utils', 'cockpit-machines', 'cockpit-storaged', 'virt-install', 'qemu', 'dnsmasq', 'dmidecode', 'edk2-ovmf', 'swtpm', 'virt-install', 'intel-undervolt', 'i2pd', 'tor'
 ]
 packagesAUR = [
-  'paru', 'sing-box', 'anki', 'protontricks', 'ttf-material-design-icons-extended', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git',
+  'paru', 'sing-box', 'anki', 'protontricks', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git',
 ]
 
 [[PROTEUSNOTEBOOK.alsa.pcms]]
