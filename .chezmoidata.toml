@@ -3,7 +3,7 @@ packages.arch = [
   'linux-zen', 'linux-firmware', 'sbctl',
   'base', 'base-devel', 'iptables-nft', 'udisks2', 'rng-tools', 'zram-generator', 'btrfs-progs', 'bash-completion', 'openssh', 'git', 'git-lfs', 'ntfs-3g', 'cifs-utils', 'openldap',
   'helix', 'bash-language-server', 'marksman', 'taplo', 'texlab', 'python-lsp-server', 'vscode-css-languageserver', 'vscode-json-languageserver', 'yaml-language-server',
-  'btop', 'tmux', 'zsh', 'zsh-completions', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'p7zip', 'unrar', 'innoextract', 'dust', 'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf',
+  'btop', 'tmux', 'zsh', 'zsh-completions', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'p7zip', 'unrar', 'innoextract', 'dust', 'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf', 'carapace',
   'noto-fonts', 'noto-fonts-cjk', 'noto-fonts-emoji', 'inter-font', 'ttc-iosevka',
   'tailscale'
 ]
@@ -13,8 +13,8 @@ packages.archExtra = [
   'mesa', 'lib32-mesa', 'libva-mesa-driver', 'libva-utils', 'vulkan-tools', 'blas-openblas',
   'ly', 'hyprland', 'hypridle', 'hyprpaper', 'hyprlock', 'waybar', 'mako', 'xdg-desktop-portal-hyprland', 'xdg-desktop-portal-gtk', 'rofi-wayland', 'cliphist', 'polkit-gnome', 'power-profiles-daemon', 'qt6ct', 'alacritty', 'grim', 'slurp', 'nautilus', 'ffmpegthumbnailer', 'gvfs', 'gvfs-mtp', 'ttf-nerd-fonts-symbols',
   'fcitx5-im', 'fcitx5-mozc', 'fcitx5-chewing', 'fcitx5-chinese-addons', 'fcitx5-pinyin-zhwiki',
-  'texlive-latexextra', 'texlive-binextra', 'texlive-mathscience', 'texlive-xetex',
-  'firefox', 'profile-sync-daemon', 'mpv', 'zathura', 'zathura-pdf-poppler',
+  'texlive-latexextra', 'texlive-binextra', 'texlive-mathscience', 'texlive-luatex',
+  'firefox', 'profile-sync-daemon', 'mpv', 'zathura', 'zathura-pdf-poppler', 'jupyterlab',
   'imv', 'gimp', 'obs-studio', 'steam', 'lutris', 'telegram-desktop', 'discord'
 ]
 mainUser = 'proteus'
@@ -24,10 +24,10 @@ aurChrootPath = '/tmp/aur_chroot'
 installExtra = true
 packagesSpec = [
   'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'blueman',
-  'amd-ucode', 'vulkan-radeon', 'lib32-vulkan-radeon', 'yarn', 'mpd', 'keepassxc', 'blender', 'ario'
+  'amd-ucode', 'vulkan-radeon', 'lib32-vulkan-radeon', 'yarn', 'mpd', 'keepassxc', 'blender', 'ario', 'yt-dlp'
 ]
 packagesAUR = [
-  'paru', 'sing-box', 'anki', 'protontricks', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git', 'moonlight-qt',
+  'paru', 'sing-box', 'anki', 'protontricks', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git', 'moonlight-qt', 'ltex-ls-bin',
   'mpdris2'
 ]
 alsa.defaultCard = 'Generic_1'
