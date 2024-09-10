@@ -1,17 +1,17 @@
 {{ if lookPath "/usr/bin/lighttpd" -}}
 server.username = "http"
 server.groupname = "http"
-server.document-root = "/srv/http"
+server.document-root = "/mnt/overlay/Services/nixos-and-flakes-book/docs/.vitepress/dist"
 dir-listing.activate = "enable"
+dir-listing.encoding = "UTF-8"
 index-file.names = ( "index.html" )
-server.modules += ("mod_redirect", "mod_setenv", "mod_openssl", "mod_deflate")
+server.modules += ("mod_redirect", "mod_setenv", "mod_openssl", "mod_deflate", "mod_alias", "mod_rewrite")
 
 # Performance tuning
 server.network-backend = "sendfile"
 deflate.mimetypes = ("text/plain", "text/html")
 deflate.allowed-encodings = ("brotli", "gzip", "deflate")
 deflate.cache-dir = "/tmp/lighttpd/cache"
-
 
 # SSL
 ssl.privkey = "/mnt/overlay/keys/private/proteus_ca.key.pem"
@@ -24,7 +24,6 @@ $SERVER["socket"] == "[::]:80" { }
 # (to avoid having to repeat ssl.* directives in both ":443" and "[::]:443")
 $SERVER["socket"] ==     ":443" { ssl.engine = "enable" }
 $SERVER["socket"] == "[::]:443" { ssl.engine = "enable" }
-
 $HTTP["scheme"] == "http" { url.redirect = ("" => "https://${url.authority}${url.path}${qsa}") }
 $HTTP["scheme"] == "https" {
   setenv.add-response-header = (
@@ -36,8 +35,11 @@ $HTTP["scheme"] == "https" {
     "Permissions-Policy" => "interest-cohort=()"
   )
 }
-
 # OCSP stapling (input file must be maintained by external script)
 # https://redmine.lighttpd.net/projects/lighttpd/wiki/Docs_SSL#OCSP-Stapling
 # ssl.stapling-file = "/path/to/cert-staple.der"
+
+alias.url = (
+  "/algorithm-archive" => "/mnt/storage3/Services/algorithm-archive/_book/"
+)
 {{ end -}}
