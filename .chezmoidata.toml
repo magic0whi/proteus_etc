@@ -92,9 +92,6 @@ packagesSpec = [
   'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'blueman',
   'intel-ucode', 'vulkan-intel', 'intel-media-driver', 'linux-zen-headers', 'nvidia-open-dkms', 'nvidia-prime', 'lib32-nvidia-utils', 'cockpit-machines', 'cockpit-storaged', 'virt-install', 'qemu', 'dnsmasq', 'dmidecode', 'edk2-ovmf', 'swtpm', 'virt-install', 'intel-undervolt', 'i2pd', 'tor'
 ]
-packagesAUR = [
-  'paru', 'sing-box', 'anki', 'protontricks', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git',
-]
 
 [[PROTEUSNOTEBOOK.alsa.pcms]]
 name = '!default'
@@ -150,5 +147,5 @@ packagesSpec = [
   'lighttpd', 'yarn'
 ]
 packagesAUR = [
-  'libva-intel-driver-hybrid', 'libva-intel-driver-hybrid', 'wsdd2', 'carapace'
+  'libva-intel-driver-hybrid', 'libva-intel-driver-hybrid', 'wsdd2'
 ]

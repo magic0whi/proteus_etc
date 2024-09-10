@@ -10,8 +10,7 @@ pacman -Syu --needed --noconfirm
 # Install Extra Packages
 {{ if index . .chezmoi.hostname "installExtra" -}}
 pacman -S --needed --noconfirm{{ range .COMMON.packages.archExtra }}{{ print " " . }}{{ end }}
-{{ end -}}
-{{ if index . .chezmoi.hostname "packagesAUR" }}
+{{ end }}
 # Install AUR packages
 RAMDISK_SIZE=$(($(free -m | awk '/Mem/ { print $7 }')/2))
 mount --mkdir -t tmpfs -o defaults,size=${RAMDISK_SIZE}M tmpfs {{ .COMMON.aurChrootPath }}
@@ -25,10 +24,12 @@ chown {{ .COMMON.mainUser }}: {{ .COMMON.aurChrootPath }}/overlay
 
 # Common AUR packages
 sudo -u {{ .COMMON.mainUser }} paru -S --needed --noconfirm --chroot={{ .COMMON.aurChrootPath }}/overlay{{ range .COMMON.packages.AUR }}{{ print " " . }}{{ end }}
+
 # Extra AUR packages
 {{ if index . .chezmoi.hostname "installExtra" -}}
 sudo -u {{ .COMMON.mainUser }} paru -S --needed --noconfirm --chroot={{ .COMMON.aurChrootPath }}/overlay{{ range .COMMON.packages.AURExtra }}{{ print " " . }}{{ end }}
-{{- end }}
+{{ end -}}
+{{ if index . .chezmoi.hostname "packagesAUR" }}
 # Spec AUR packages
 sudo -u {{ .COMMON.mainUser }} paru -S --needed --noconfirm --chroot={{ .COMMON.aurChrootPath }}/overlay{{ range index . .chezmoi.hostname "packagesAUR" }}{{ print " " . }}{{ end }}
 {{ end -}}
