@@ -1,18 +1,17 @@
 {{ if eq .chezmoi.os "linux" -}}
-{{- if eq .chezmoi.osRelease.name "Arch Linux" -}}
 #!/bin/sh
 set -eufo pipefail
+{{ if eq .chezmoi.osRelease.name "Arch Linux" -}}
 # Install common and host specific packages
 pacman -Syu --needed --noconfirm
-{{- range .COMMON.packages.arch }}{{ print " " . }}{{ end }}
-{{- range index . .chezmoi.hostname "packagesSpec" }}{{ print " " . }}{{ end }}
+{{- range .COMMON.packages.arch }}{{ print " " . }}{{ end -}}
+{{ range index . .chezmoi.hostname "packagesSpec" }}{{ print " " . }}{{- end }}
 
 # Install Extra Packages
-{{- if index . .chezmoi.hostname "installExtra" }}
+{{ if index . .chezmoi.hostname "installExtra" -}}
 pacman -S --needed --noconfirm{{ range .COMMON.packages.archExtra }}{{ print " " . }}{{ end }}
-{{- end }}
-{{- if index . .chezmoi.hostname "packagesAUR" }}
-
+{{ end -}}
+{{ if index . .chezmoi.hostname "packagesAUR" }}
 # Install AUR packages
 RAMDISK_SIZE=$(($(free -m | awk '/Mem/ { print $7 }')/2))
 mount --mkdir -t tmpfs -o defaults,size=${RAMDISK_SIZE}M tmpfs {{ .COMMON.aurChrootPath }}
@@ -24,7 +23,13 @@ mkfs.btrfs -m single -f {{ .COMMON.aurChrootPath }}/ramdisk
 mount --mkdir -t btrfs -o loop,compress=zstd {{ .COMMON.aurChrootPath }}/ramdisk {{ .COMMON.aurChrootPath }}/overlay
 chown {{ .COMMON.mainUser }}: {{ .COMMON.aurChrootPath }}/overlay
 
+# Common AUR packages
+sudo -u {{ .COMMON.mainUser }} paru -S --needed --noconfirm --chroot={{ .COMMON.aurChrootPath }}/overlay{{ range .COMMON.packages.AUR }}{{ print " " . }}{{ end }}
+# Extra AUR packages
+{{ if index . .chezmoi.hostname "installExtra" -}}
+sudo -u {{ .COMMON.mainUser }} paru -S --needed --noconfirm --chroot={{ .COMMON.aurChrootPath }}/overlay{{ range .COMMON.packages.AURExtra }}{{ print " " . }}{{ end }}
+{{- end }}
+# Spec AUR packages
 sudo -u {{ .COMMON.mainUser }} paru -S --needed --noconfirm --chroot={{ .COMMON.aurChrootPath }}/overlay{{ range index . .chezmoi.hostname "packagesAUR" }}{{ print " " . }}{{ end }}
-{{- end }}
-{{- end }}
-{{- end -}}
+{{ end -}}
+{{ end }}{{ end -}}

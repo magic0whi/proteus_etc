@@ -3,7 +3,7 @@ packages.arch = [
   'linux-zen', 'linux-firmware', 'sbctl',
   'base', 'base-devel', 'iptables-nft', 'udisks2', 'rng-tools', 'zram-generator', 'btrfs-progs', 'bash-completion', 'openssh', 'git', 'git-lfs', 'ntfs-3g', 'cifs-utils', 'openldap',
   'helix', 'bash-language-server', 'marksman', 'taplo', 'texlab', 'python-lsp-server', 'vscode-css-languageserver', 'vscode-json-languageserver', 'yaml-language-server',
-  'btop', 'tmux', 'zsh', 'zsh-completions', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'p7zip', 'unrar', 'innoextract', 'dust', 'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf', 'carapace',
+  'btop', 'tmux', 'zsh', 'zsh-completions', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'p7zip', 'unrar', 'innoextract', 'dust', 'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf',
   'noto-fonts', 'noto-fonts-cjk', 'noto-fonts-emoji', 'inter-font', 'ttc-iosevka',
   'tailscale'
 ]
@@ -17,6 +17,12 @@ packages.archExtra = [
   'firefox', 'profile-sync-daemon', 'mpv', 'zathura', 'zathura-pdf-poppler', 'jupyterlab',
   'imv', 'gimp', 'obs-studio', 'steam', 'lutris', 'telegram-desktop', 'discord'
 ]
+packages.AUR = [
+  'paru', 'sing-box', 'yazi', 'cmake-language-server', 'moonlight-qt', 'ltex-ls-bin', 'carapace'
+]
+packages.AURExtra = [
+  'anki', 'protontricks', 'fcitx5-pinyin-moegirl', 'xdg-terminal-exec-git'
+]
 mainUser = 'proteus'
 aurChrootPath = '/tmp/aur_chroot'
 
@@ -27,8 +33,7 @@ packagesSpec = [
   'amd-ucode', 'vulkan-radeon', 'lib32-vulkan-radeon', 'yarn', 'mpd', 'keepassxc', 'blender', 'ario', 'yt-dlp'
 ]
 packagesAUR = [
-  'paru', 'sing-box', 'anki', 'protontricks', 'fcitx5-pinyin-moegirl', 'hexo-cli', 'yazi', 'cmake-language-server', 'xdg-terminal-exec-git', 'moonlight-qt', 'ltex-ls-bin',
-  'mpdris2'
+  'moonlight-qt', 'mpdris2'
 ]
 alsa.defaultCard = 'Generic_1'
 batModel = 'L22M4PF7'
@@ -145,5 +150,5 @@ packagesSpec = [
   'lighttpd', 'yarn'
 ]
 packagesAUR = [
-  'libva-intel-driver-hybrid', 'libva-intel-driver-hybrid', 'wsdd2'
+  'libva-intel-driver-hybrid', 'libva-intel-driver-hybrid', 'wsdd2', 'carapace'
 ]
