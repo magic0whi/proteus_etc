@@ -117,12 +117,4 @@ objectClass: groupOfMembers
 cn: libvirt
 gidNumber: 10002
 member: uid={{ .COMMON.mainUser }},ou=People,dc=tailba6c3f,dc=ts,dc=net
-
-dn: cn=nix-users,ou=Group,dc=tailba6c3f,dc=ts,dc=net
-objectClass: top
-objectClass: posixGroup
-objectClass: groupOfMembers
-cn: libvirt
-gidNumber: 10003
-member: uid={{ .COMMON.mainUser }},ou=People,dc=tailba6c3f,dc=ts,dc=net
-{{- end -}}
+{{ end -}}
