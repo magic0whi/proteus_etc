@@ -94,6 +94,23 @@ gidNumber: 1000
 homeDirectory: /home/{{ .COMMON.mainUser }}/
 description: This is me
 
+dn: uid=atuin,ou=People,dc=tailba6c3f,dc=ts,dc=net
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: atuin
+sn: Atuin
+cn: Atuinsh Atuin
+userPassword: {{ keepassxcAttribute "chezmoi/openldap" "atuin_password" }}
+loginShell: /usr/bin/nologin
+uidNumber: 1001
+gidNumber: 1001
+homeDirectory: /mnt/overlay/Services/atuin
+description: Magical shell history
+
 dn: cn={{ .COMMON.mainUser }},ou=Group,dc=tailba6c3f,dc=ts,dc=net
 objectClass: top
 objectClass: posixGroup

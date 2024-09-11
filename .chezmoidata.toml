@@ -5,7 +5,7 @@ packages.arch = [
   'helix', 'bash-language-server', 'marksman', 'taplo', 'texlab', 'python-lsp-server', 'vscode-css-languageserver', 'vscode-json-languageserver', 'yaml-language-server',
   'btop', 'tmux', 'zsh', 'zsh-completions', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'p7zip', 'unrar', 'innoextract', 'dust', 'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf', 'atuin',
   'noto-fonts', 'noto-fonts-cjk', 'noto-fonts-emoji', 'inter-font', 'ttc-iosevka',
-  'tailscale', 'nix'
+  'tailscale', 'nix', 'yarn'
 ]
 packages.archExtra = [
   'bc', 'usbutils', 'hyfetch', 'img2pdf', 'syncthing', 'keepassxc',
@@ -30,7 +30,7 @@ aurChrootPath = '/tmp/aur_chroot'
 installExtra = true
 packagesSpec = [
   'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'blueman',
-  'amd-ucode', 'vulkan-radeon', 'lib32-vulkan-radeon', 'yarn', 'mpd', 'keepassxc', 'blender', 'ario', 'yt-dlp'
+  'amd-ucode', 'vulkan-radeon', 'lib32-vulkan-radeon', 'mpd', 'keepassxc', 'blender', 'ario', 'yt-dlp'
 ]
 packagesAUR = [
   'moonlight-qt', 'mpdris2'
@@ -144,7 +144,7 @@ fstabVarLogUUID = 'ea9d15ae-15de-4acf-9b45-a87400da2b43'
 wireAdapterName = 'enp2s0'
 packagesSpec = [
   'intel-ucode', 'mesa', 'vulkan-intel', 'docker', 'docker-compose', 'intel-undervolt',
-  'lighttpd', 'yarn'
+  'lighttpd', 'postgresql'
 ]
 packagesAUR = [
   'libva-intel-driver-hybrid', 'libva-intel-driver-hybrid', 'wsdd2'

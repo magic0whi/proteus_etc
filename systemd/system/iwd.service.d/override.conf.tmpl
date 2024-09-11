@@ -1,6 +1,6 @@
 {{ if lookPath "iwctl" -}}
 [Unit]
-Requires=sys-subsystem-net-devices-{{ index . .chezmoi.hostname "wirelessAdapterName" }}.device
+BindsTo=sys-subsystem-net-devices-{{ index . .chezmoi.hostname "wirelessAdapterName" }}.device
 After=sys-subsystem-net-devices-{{ index . .chezmoi.hostname "wirelessAdapterName" }}.device
 
 [Service]

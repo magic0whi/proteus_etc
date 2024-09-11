@@ -1,0 +1,31 @@
+{{ if eq .chezmoi.hostname "PROTEUSDESKTOP" -}}
+[Unit]
+Description=aria2 Daemon
+Documentation=man:aria2c(1)
+BindsTo=mnt-storage3.mount
+After=network-online.target mnt-storage3.mount
+Wants=network-online.target systemd-networkd-wait-online.service
+
+[Service]
+Type=forking
+User=%i
+ExecStart=/usr/bin/aria2c --conf-path=/mnt/overlay/Services/aria2/config/aria2.conf
+ExecReload=/usr/bin/kill -HUP $MAINPID
+
+ReadWritePaths=/mnt/overlay/Services/aria2
+# Hardening options
+CapabilityBoundingSet=
+AmbientCapabilities=
+NoNewPrivileges=true
+ProtectHome=true
+ProtectSystem=strict
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+PrivateTmp=true
+PrivateDevices=true
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target
+{{ end -}}

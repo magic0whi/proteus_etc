@@ -1,0 +1,32 @@
+{{ if eq .chezmoi.hostname "PROTEUSDESKTOP" -}}
+[Unit]
+Description=Start the Atuin server syncing service
+BindsTo=mnt-storage3.mount
+After=network-online.target
+Wants=network-online.target systemd-networkd-wait-online.service
+
+[Service]
+ExecStart=atuin server start
+Restart=on-failure
+User=%i
+Group=%i
+
+Environment=ATUIN_CONFIG_DIR=/mnt/overlay/Services/atuin
+ReadWritePaths=/mnt/overlay/Services/atuin
+
+# Hardening options
+CapabilityBoundingSet=
+AmbientCapabilities=
+NoNewPrivileges=true
+ProtectHome=true
+ProtectSystem=strict
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+PrivateTmp=true
+PrivateDevices=true
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target
+{{ end -}}
