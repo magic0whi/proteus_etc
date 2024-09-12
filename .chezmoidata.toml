@@ -5,7 +5,7 @@ packages.arch = [
   'helix', 'bash-language-server', 'marksman', 'taplo', 'texlab', 'python-lsp-server', 'vscode-css-languageserver', 'vscode-json-languageserver', 'yaml-language-server',
   'btop', 'tmux', 'zsh', 'zsh-completions', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'p7zip', 'unrar', 'innoextract', 'dust', 'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf', 'atuin',
   'noto-fonts', 'noto-fonts-cjk', 'noto-fonts-emoji', 'inter-font', 'ttc-iosevka',
-  'tailscale', 'nix', 'yarn'
+  'tailscale', 'nix', 'yarn', 'ethtool'
 ]
 packages.archExtra = [
   'bc', 'usbutils', 'hyfetch', 'img2pdf', 'syncthing', 'keepassxc',
