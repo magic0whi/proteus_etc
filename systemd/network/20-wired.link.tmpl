@@ -1,0 +1,12 @@
+{{ if eq .chezmoi.hostname "PROTEUSDESKTOP" -}}
+[Match]
+MACAddress=d8:cb:8a:97:be:33
+
+[Link]
+NamePolicy=kernel database onboard slot path
+MACAddressPolicy=persistent
+WakeOnLan=magic
+GenericSegmentationOffload=true
+GenericReceiveOffload=false
+GenericReceiveOffloadHardware=false
+{{ end -}}
