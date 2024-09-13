@@ -23,6 +23,7 @@ packages.AUR = [
 packages.AURExtra = [
   'anki', 'protontricks', 'fcitx5-pinyin-moegirl', 'xdg-terminal-exec-git'
 ]
+packages.archIgnores = ['tzdata']
 mainUser = 'proteus'
 aurChrootPath = '/tmp/aur_chroot'
 

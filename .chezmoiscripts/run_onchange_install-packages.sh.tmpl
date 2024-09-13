@@ -4,12 +4,12 @@ set -eufo pipefail
 {{ if eq .chezmoi.osRelease.name "Arch Linux" -}}
 # Install common and host specific packages
 pacman -Syu --needed --noconfirm
-{{- range .COMMON.packages.arch }}{{ print " " . }}{{ end -}}
-{{ range index . .chezmoi.hostname "packagesSpec" }}{{ print " " . }}{{- end }}
-
+{{- if .COMMON.packages.archIgnores }}{{ range .COMMON.packages.archIgnores }} --ignore {{ . }}{{ end }}{{ end -}}
+{{ range .COMMON.packages.arch }}{{ print " " . }}{{ end -}}
+{{ range index . .chezmoi.hostname "packagesSpec" }} {{ . }}{{ end }}
 # Install Extra Packages
 {{ if index . .chezmoi.hostname "installExtra" -}}
-pacman -S --needed --noconfirm{{ range .COMMON.packages.archExtra }}{{ print " " . }}{{ end }}
+pacman -S --needed --noconfirm{{ range .COMMON.packages.archExtra }} {{ . }}{{ end }}
 {{ end }}
 # Install AUR packages
 RAMDISK_SIZE=$(($(free -m | awk '/Mem/ { print $7 }')/2))
