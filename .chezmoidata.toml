@@ -1,7 +1,7 @@
 [COMMON]
 packages.arch = [
   'linux-zen', 'linux-firmware', 'sbctl',
-  'base', 'base-devel', 'iptables-nft', 'udisks2', 'rng-tools', 'zram-generator', 'btrfs-progs', 'bash-completion', 'openssh', 'git', 'git-lfs', 'ntfs-3g', 'cifs-utils', 'openldap', 'sssd',
+  'base', 'base-devel', 'iptables-nft', 'udisks2', 'rng-tools', 'zram-generator', 'btrfs-progs', 'bash-completion', 'openssh', 'git', 'git-lfs', 'ntfs-3g', 'cifs-utils', 'openldap', 'sssd', 'devtools',
   'helix', 'bash-language-server', 'marksman', 'taplo-cli', 'texlab', 'python-lsp-server', 'vscode-css-languageserver', 'vscode-json-languageserver', 'yaml-language-server', 'typescript-language-server',
   'btop', 'tmux', 'zsh', 'zsh-completions', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'dust', 'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf', 'atuin',
   'noto-fonts', 'noto-fonts-cjk', 'noto-fonts-emoji', 'inter-font', 'ttc-iosevka',
@@ -15,7 +15,7 @@ packages.archExtra = [
   'fcitx5-im', 'fcitx5-mozc', 'fcitx5-chewing', 'fcitx5-chinese-addons', 'fcitx5-pinyin-zhwiki',
   'texlive-binextra', 'texlive-langchinese', 'texlive-langjapanese', 'texlive-latexextra', 'texlive-luatex', 'texlive-mathscience', 'texlive-plaingeneric',
   'firefox', 'profile-sync-daemon', 'mpv', 'zathura', 'zathura-pdf-poppler', 'jupyterlab', 'gnuplot',
-  'imv', 'gimp', 'obs-studio', 'steam', 'lutris', 'telegram-desktop', 'discord', 'meld'
+  'loupe', 'gimp', 'obs-studio', 'steam', 'lutris', 'telegram-desktop', 'discord', 'meld'
 ] # chntpw (Windows Registry), efibootmgr, fswebcam, p7zip, unrar, innoextract, iperf3, nethogs, nmap, nvme-cli, picocom, powertop, python-sympy, speedtest-cli, torbrowser-launcher, traceroute, tree, wev
 packages.AUR = [
   'paru', 'sing-box', 'yazi', 'cmake-language-server', 'moonlight-qt', 'ltex-ls-bin', 'carapace', 'nil-git'

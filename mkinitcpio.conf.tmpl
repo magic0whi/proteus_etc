@@ -63,7 +63,7 @@ FILES=({{ if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
 ##   NOTE: If you have /usr on a separate partition, you MUST include the
 #    usr and fsck hooks.
 HOOKS=(
-{{- if eq .chezmoi.hostname "PROTEUSLAPTOP" }}dsdt {{ end -}}
+{{- if eq .chezmoi.hostname "PROTEUSLAPTOP" }}acpi_override {{ end -}}
 base systemd autodetect microcode modconf kms keyboard sd-vconsole sd-encrypt block filesystems fsck)
 
 # COMPRESSION

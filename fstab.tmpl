@@ -13,17 +13,15 @@ UUID={{ index . .chezmoi.hostname "fstabSnapshotsUUID" }} /.snapshots btrfs rw,r
 UUID={{ index . .chezmoi.hostname "fstabVarLogUUID" }} /var/log    btrfs rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@var_log 0 0
 
 /.snapshots/swapfile none swap defaults 0 0
-{{- if eq .chezmoi.hostname "PROTEUSLAPTOP" "PROTEUSNOTEBOOK" }}
-
+{{ if eq .chezmoi.hostname "PROTEUSLAPTOP" "PROTEUSNOTEBOOK" }}
 # Samba (LAN)
 //proteusdesktop/storage3 /mnt/smb_share cifs _netdev,nofail,seal,credentials=/mnt/overlay/keys/private/proteus.smb,rw,relatime,vers=3.1.1,cache=strict,uid=1000,noforceuid,gid=1000,noforcegid,file_mode=0644,dir_mode=0755,iocharset=utf8,soft,nounix,serverino,mapposix,reparse=nfs,rsize=4194304,wsize=4194304,bsize=1048576,retrans=1,echo_interval=60,actimeo=1,closetimeo=1 0 0
-{{- end }}
-{{- if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
-
+//proteusdesktop/storage2 /mnt/smb_cold_backup cifs _netdev,nofail,seal,credentials=/mnt/overlay/keys/private/proteus.smb,rw,relatime,vers=3.1.1,cache=strict,uid=1000,noforceuid,gid=1000,noforcegid,file_mode=0644,dir_mode=0755,iocharset=utf8,soft,nounix,serverino,mapposix,reparse=nfs,rsize=4194304,wsize=4194304,bsize=1048576,retrans=1,echo_interval=60,actimeo=1,closetimeo=1 0 0
+{{ end -}}
+{{ if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
 # /dev/nvme0n1p1 LABEL=storage1
 UUID=af7fe924-3168-4268-8617-b4c9867b05d9 /mnt/storage1 btrfs nofail,rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvolid=256,subvol=/@ 0 0
-{{- else if eq .chezmoi.hostname "PROTEUSDESKTOP" }}
-
+{{ else if eq .chezmoi.hostname "PROTEUSDESKTOP" }}
 # /dev/md127 LABEL=storage3
 UUID=f804317b-3613-47c7-9d46-ab19be6a88a9 /mnt/storage3 btrfs nofail,rw,relatime,compress=zstd:3,space_cache=v2,subvolid=256,subvol=/@ 0 0
 
@@ -32,4 +30,4 @@ UUID=5f5fb04a-5e02-40ff-bc7e-b2ae41d50f4b /mnt/storage1 btrfs nofail,rw,relatime
 
 # /dev/sdf2 LABEL=storage2
 UUID=2b58cac6-c037-41f2-a404-c40c529da726 /mnt/storage2 btrfs nofail,rw,relatime,compress=zstd:3,space_cache=v2,subvolid=256,subvol=/@ 0 0
-{{- end -}}
+{{ end -}}
