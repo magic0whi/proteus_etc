@@ -22,6 +22,7 @@ table inet filter {
     udp dport { snapenetio, 21027 } accept comment "Allow Syncthing broadcasts (IPv4) / multicasts (IPv6)"
     iifname tun0 accept comment "Allow Sing-box"
     tcp dport 8888 accept comment "Allow Atuin"
+    udp dport bootps accept comment "Allow DHCP server (systemd-nspawn)"
     pkttype host limit rate 5/second counter reject with icmpx type admin-prohibited comment "Limit ping speed from other Internet"
     counter
   }
