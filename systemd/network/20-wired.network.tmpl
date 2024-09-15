@@ -2,8 +2,12 @@
 [Match]
 Name={{ index . .chezmoi.hostname "wireAdapterName" }}
 
+{{ if eq .chezmoi.hostname "PROTEUSNOTEBOOK" -}}
+[Link]
+RequiredForOnline=carrier
+{{ end }}
 [Network]
-{{- if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
+{{ if eq .chezmoi.hostname "PROTEUSNOTEBOOK" -}}
 MACVTAP=macvtap0
 DHCP=no
 IPv6AcceptRA=no

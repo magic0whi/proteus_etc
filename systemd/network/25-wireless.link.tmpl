@@ -1,6 +1,7 @@
-{{ if index . .chezmoi.hostname "wireAdapterName" -}}
+{{ if dig .chezmoi.hostname "wirelessAdapterName" nil . -}}
 [Match]
-Name={{ index . .chezmoi.hostname "wireAdapterName" }}
+Name={{ index . .chezmoi.hostname "wirelessAdapterName" }}
+SSID={{ index . .chezmoi.hostname "SSID" }}
 
 [Link]
 NamePolicy=kernel database onboard slot path

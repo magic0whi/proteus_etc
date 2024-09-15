@@ -11,7 +11,7 @@ packages.archExtra = [
   'bc', 'usbutils', 'hyfetch', 'img2pdf', 'syncthing', 'keepassxc', 'nvtop',
   'pipewire', 'wireplumber', 'pipewire-alsa', 'pipewire-pulse', 'libpulse', 'alsa-utils', 'playerctl',
   'mesa', 'lib32-mesa', 'libva-mesa-driver', 'libva-utils', 'vulkan-tools', 'blas-openblas',
-  'ly', 'hyprland', 'hypridle', 'hyprpaper', 'hyprlock', 'waybar', 'mako', 'xdg-desktop-portal-hyprland', 'xdg-desktop-portal-gtk', 'rofi-wayland', 'cliphist', 'polkit-gnome', 'power-profiles-daemon', 'qt6ct', 'alacritty', 'grim', 'slurp', 'nautilus', 'ffmpegthumbnailer', 'gvfs', 'gvfs-mtp', 'ttf-nerd-fonts-symbols',
+  'ly', 'hyprland', 'hypridle', 'hyprpaper', 'hyprlock', 'waybar', 'mako', 'xdg-desktop-portal-hyprland', 'xdg-desktop-portal-gtk', 'rofi-wayland', 'cliphist', 'polkit-gnome', 'power-profiles-daemon', 'qt6ct', 'alacritty', 'grim', 'slurp', 'nautilus', 'ffmpegthumbnailer', 'gvfs', 'gvfs-mtp', 'ttf-nerd-fonts-symbols', 'gammastep',
   'fcitx5-im', 'fcitx5-mozc', 'fcitx5-chewing', 'fcitx5-chinese-addons', 'fcitx5-pinyin-zhwiki',
   'texlive-binextra', 'texlive-langchinese', 'texlive-langjapanese', 'texlive-latexextra', 'texlive-luatex', 'texlive-mathscience', 'texlive-plaingeneric',
   'firefox', 'profile-sync-daemon', 'mpv', 'zathura', 'zathura-pdf-poppler', 'jupyterlab', 'gnuplot',
@@ -21,7 +21,7 @@ packages.AUR = [
   'paru', 'sing-box', 'yazi', 'cmake-language-server', 'moonlight-qt', 'ltex-ls-bin', 'carapace', 'nil-git'
 ]
 packages.AURExtra = [
-  'anki', 'protontricks', 'fcitx5-pinyin-moegirl', 'xdg-terminal-exec-git'
+  'anki', 'protontricks', 'fcitx5-pinyin-moegirl', 'xdg-terminal-exec-git', 'wluma'
 ]
 packages.archIgnores = []
 mainUser = 'proteus'
@@ -34,7 +34,7 @@ packagesSpec = [
   'amd-ucode', 'vulkan-radeon', 'lib32-vulkan-radeon', 'mpd', 'mpc', 'keepassxc', 'blender', 'ario', 'yt-dlp', 'ytfzf', 'docker', 'act', 'bat', 'colord', 'ddcutil', 'libc++', 'lld', 'lldb'
 ]
 packagesAUR = [
-  'mkinitcpio-dsdt-hook', 'moonlight-qt', 'mpdris2', 'modrinth-app-git', 'r2modman-bin', 'ddcui'
+  'moonlight-qt', 'mpdris2', 'modrinth-app-git', 'r2modman-bin', 'ddcui'
 ]
 alsa.defaultCard = 'Generic_1'
 batModel = 'L22M4PF7'
@@ -51,6 +51,7 @@ fstabSnapshotsUUID = '89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
 # /dev/mapper/cryptroot LABEL=arch_os
 fstabVarLogUUID = '89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
 wirelessAdapterName = 'wlp1s0'
+SSID = 'Xiaomi_704C_5G'
 
 [[PROTEUSLAPTOP.alsa.pcms]]
 name = '!default'
