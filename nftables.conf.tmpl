@@ -37,6 +37,8 @@ table inet filter {
 {{- if eq .chezmoi.hostname "PROTEUSDESKTOP" "PROTEUSLAPTOP" }}
     ip saddr 172.17.0.0/12 counter accept comment "Allow Docker containers' packages go outside"
     ip daddr 172.17.0.0/12 counter accept comment "Allow packages go into docker containers"
+    iifname "ve-*" counter accept comment "Allow systemd-nspawn container"
+
 {{- end }}
   }
 }
