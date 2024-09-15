@@ -47,6 +47,8 @@ sudoOption: !authenticate
 sudoCommand: /usr/bin/psd-overlay-helper
 # Note: paru hardcoded 'sudo install -dm755 $CHROOT'
 # https://github.com/Morganamilo/paru/blob/5355012aa3529014145b8940dd0c62b21e53095a/src/chroot.rs#L43
+sudoCommand: /usr/bin/arch-nspawn
+sudoCommand: /usr/bin/cp -auT /var/lib/pacman/sync /tmp/aur_chroot/overlay/root/var/lib/pacman/sync
 sudoCommand: /usr/bin/install -dm755 {{ .COMMON.aurChrootPath }}/overlay
 sudoCommand: /usr/bin/mkarchroot
 sudoCommand: /usr/bin/pacman
@@ -117,21 +119,5 @@ objectClass: posixGroup
 objectClass: groupOfMembers
 cn: {{ .COMMON.mainUser }}
 gidNumber: 1000
-member: uid={{ .COMMON.mainUser }},ou=People,dc=tailba6c3f,dc=ts,dc=net
-
-dn: cn=docker,ou=Group,dc=tailba6c3f,dc=ts,dc=net
-objectClass: top
-objectClass: posixGroup
-objectClass: groupOfMembers
-cn: docker
-gidNumber: 10001
-member: uid={{ .COMMON.mainUser }},ou=People,dc=tailba6c3f,dc=ts,dc=net
-
-dn: cn=libvirt,ou=Group,dc=tailba6c3f,dc=ts,dc=net
-objectClass: top
-objectClass: posixGroup
-objectClass: groupOfMembers
-cn: libvirt
-gidNumber: 10002
 member: uid={{ .COMMON.mainUser }},ou=People,dc=tailba6c3f,dc=ts,dc=net
 {{ end -}}
