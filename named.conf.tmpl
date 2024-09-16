@@ -1,0 +1,71 @@
+{{ if lookPath "named" -}}
+controls {
+  inet 127.0.0.1 allow { localhost; } keys { custom; };
+};
+key custom {
+  algorithm {{ (keepassxc "chezmoi/bind").UserName }};
+  secret {{ (keepassxc "chezmoi/bind").Password }};
+};
+acl local-networks {
+  127.0.0.0/8;
+  172.19.0.0/24;
+  100.64.0.0/10;
+  192.168.15.0/24;
+  ::1/128;
+  fd7a:115c:a1e0::/48;
+  fd66:6e5:aebe::/64;
+};
+tls mycert {
+  cert-file "/mnt/overlay/keys/proteus_server.pem";
+  key-file "/mnt/overlay/keys/private/proteus_ca.key.pem";
+};
+options {
+  directory "/mnt/overlay/Services/named";
+  pid-file "/run/named/named.pid";
+  session-keyfile "/run/named/session.key";
+  listen-on    { any; };
+  listen-on-v6 { any; };
+  listen-on tls mycert { any; }; # Standard port 853
+  listen-on-v6 tls mycert { any; };
+  listen-on    port 9443 tls mycert http default { any; }; # DNS over HTTPS
+  listen-on-v6 port 9443 tls mycert http default { any; };
+  allow-query       { local-networks; };
+  allow-recursion   { local-networks; };
+  allow-query-cache { local-networks; };
+  allow-transfer    { none; };
+  allow-update      { none; };
+  version none;
+  hostname none;
+  server-id none;
+  # Uncomment if you wish to use ISP forwarders
+  # forwarders { 223.5.5.5; };
+};
+dnssec-policy custom {
+  keys {
+    csk key-directory lifetime unlimited algorithm 15; # ED25519
+  };
+  max-zone-ttl 24h; # 24h
+  signatures-refresh 8d; # Regenerate 8 days before expire
+  signatures-validity 10d; # ZSK validity last for 10 days (resigned every 2 days)
+  signatures-validity-dnskey 10d; # KSK validity last for 10 days
+};
+zone "tailba6c3f.ts.net" IN {
+  type master;
+  file "tailba6c3f.ts.net.zone";
+  # Waiting for tailscale to allow to submit a DS record
+  dnssec-policy custom;
+  update-policy local;
+};
+logging {
+  channel xfer-log {
+    # file "/var/log/named.log";
+    syslog;
+    print-category yes;
+    print-severity yes;
+    severity info;
+  };
+  category xfer-in { xfer-log; };
+  category xfer-out { xfer-log; };
+  category notify { xfer-log; };
+};
+{{ end -}}

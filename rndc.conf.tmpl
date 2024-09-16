@@ -1,0 +1,10 @@
+{{ if lookPath "rndc" -}}
+options {
+  default-server localhost;
+  default-key "custom";
+};
+key custom {
+  algorithm {{ (keepassxc "chezmoi/bind").UserName }};
+  secret {{ (keepassxc "chezmoi/bind").Password }};
+};
+{{ end -}}

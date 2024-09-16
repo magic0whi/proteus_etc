@@ -1,11 +1,13 @@
 {{ if lookPath "/usr/bin/lighttpd" -}}
+server.systemd-socket-activation = "enable"
+server.name = "tailba6c3f.ts.net"
 server.username = "http"
 server.groupname = "http"
-server.document-root = "/mnt/overlay/Services/nixos-and-flakes-book/docs/.vitepress/dist"
+server.document-root = "/srv/http"
+server.modules += ("mod_redirect", "mod_setenv", "mod_openssl", "mod_deflate", "mod_alias", "mod_rewrite")
 dir-listing.activate = "enable"
 dir-listing.encoding = "UTF-8"
 index-file.names = ( "index.html" )
-server.modules += ("mod_redirect", "mod_setenv", "mod_openssl", "mod_deflate", "mod_alias", "mod_rewrite")
 
 # Performance tuning
 server.network-backend = "sendfile"
@@ -18,11 +20,14 @@ ssl.privkey = "/mnt/overlay/keys/private/proteus_ca.key.pem"
 ssl.pemfile = "/mnt/overlay/keys/proteus_server.pem"
 ssl.openssl.ssl-conf-cmd = ("MinProtocol" => "TLSv1.3")
 ssl.openssl.ssl-conf-cmd += ("Options" => "-ServerPreference")
-$SERVER["socket"] == "[::]:80" { }
+# If using systemd-socket the listen work is done by systemd , set it here
+# explicitly will cause 'port already use' error, so only leave a conditional
+# check for [::]:443 to ensure that the ssl engine is enabled
+#$SERVER["socket"] == "[::]:80" { }
 # lighttpd 1.4.56 and later will inherit ssl.* from the global scope if
 # $SERVER["socket"] contains ssl.engine = "enable" and no other ssl.* options
 # (to avoid having to repeat ssl.* directives in both ":443" and "[::]:443")
-$SERVER["socket"] ==     ":443" { ssl.engine = "enable" }
+#$SERVER["socket"] ==     ":443" { ssl.engine = "enable" }
 $SERVER["socket"] == "[::]:443" { ssl.engine = "enable" }
 $HTTP["scheme"] == "http" { url.redirect = ("" => "https://${url.authority}${url.path}${qsa}") }
 $HTTP["scheme"] == "https" {
@@ -39,7 +44,20 @@ $HTTP["scheme"] == "https" {
 # https://redmine.lighttpd.net/projects/lighttpd/wiki/Docs_SSL#OCSP-Stapling
 # ssl.stapling-file = "/path/to/cert-staple.der"
 
-alias.url = (
-  "/algorithm-archive" => "/mnt/storage3/Services/algorithm-archive/_book/"
-)
+var.vhosts_dir  = "/mnt/storage3/Services"
+$HTTP["host"] =^ "algorithm-archive" {
+  var.sub_dir = "algorithm-archive"
+  server.name = sub_dir + "." + server.name
+  server.document-root = vhosts_dir + "/" + sub_dir + "/_book"
+}
+$HTTP["host"] =^ "nixos-and-flakes-book" {
+  var.sub_dir = "nixos-and-flakes-book"
+  server.name = sub_dir + "." + server.name
+  server.document-root = vhosts_dir + "/" + sub_dir + "/docs/.vitepress/dist"
+}
+$HTTP["host"] =^ "web-llm-chat" {
+  var.sub_dir = "web-llm-chat"
+  server.name = sub_dir + "." + server.name
+  server.document-root = vhosts_dir + "/" + sub_dir + "/out"
+}
 {{ end -}}
