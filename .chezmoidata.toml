@@ -18,12 +18,12 @@ packages.archExtra = [
   'loupe', 'gimp', 'obs-studio', 'steam', 'lutris', 'telegram-desktop', 'discord', 'meld'
 ] # chntpw (Windows Registry), efibootmgr, fswebcam, p7zip, unrar, innoextract, iperf3, nethogs, nmap, nvme-cli, picocom, powertop, python-sympy, speedtest-cli, torbrowser-launcher, traceroute, tree, wev
 packages.AUR = [
-  'paru-git', 'sing-box', 'yazi', 'cmake-language-server', 'moonlight-qt', 'ltex-ls-bin', 'carapace', 'nil-git'
+  'sing-box', 'yazi', 'cmake-language-server', 'moonlight-qt', 'ltex-ls-bin', 'carapace', 'nil-git'
 ]
 packages.AURExtra = [
   'anki', 'protontricks', 'fcitx5-pinyin-moegirl', 'xdg-terminal-exec-git', 'wluma'
 ]
-packages.archIgnores = []
+packages.archIgnores = ['paru-git']
 mainUser = 'proteus'
 aurChrootPath = '/tmp/aur_chroot'
 
