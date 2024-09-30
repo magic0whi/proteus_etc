@@ -18,20 +18,20 @@ packages.archExtra = [
   'loupe', 'gimp', 'obs-studio', 'steam', 'lutris', 'telegram-desktop', 'discord', 'meld'
 ] # chntpw (Windows Registry), efibootmgr, fswebcam, p7zip, unrar, innoextract, iperf3, nethogs, nmap, nvme-cli, picocom, powertop, python-sympy, speedtest-cli, torbrowser-launcher, traceroute, tree, wev
 packages.AUR = [
-  'sing-box', 'yazi', 'cmake-language-server', 'moonlight-qt', 'ltex-ls-bin', 'carapace', 'nil-git'
+  'paru', 'sing-box', 'yazi', 'cmake-language-server', 'moonlight-qt', 'ltex-ls-bin', 'carapace', 'nil-git', 'cloudflare-warp-bin'
 ]
 packages.AURExtra = [
-  'anki', 'protontricks', 'fcitx5-pinyin-moegirl', 'xdg-terminal-exec-git', 'wluma'
+  'anki', 'fcitx5-pinyin-moegirl', 'xdg-terminal-exec-git', 'wluma'
 ]
-packages.archIgnores = ['paru-git']
+packages.archIgnores = []
 mainUser = 'proteus'
 aurChrootPath = '/tmp/aur_chroot'
 
 [PROTEUSLAPTOP]
 installExtra = true
 packagesSpec = [
-  'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'blueman', 'bolt', 'hip-runtime-amd', 'rocm-smi-lib',
-  'amd-ucode', 'vulkan-radeon', 'lib32-vulkan-radeon', 'mpd', 'mpc', 'keepassxc', 'blender', 'ario', 'yt-dlp', 'ytfzf', 'docker', 'act', 'bat', 'colord', 'ddcutil', 'libc++', 'lld', 'lldb'
+  'amd-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'blueman', 'bolt', 'hip-runtime-amd', 'rocm-smi-lib',
+  'vulkan-radeon', 'lib32-vulkan-radeon', 'mpd', 'mpc', 'keepassxc', 'blender', 'ario', 'yt-dlp', 'ytfzf', 'docker', 'act', 'bat', 'colord', 'ddcutil', 'libc++', 'lld', 'lldb'
 ]
 packagesAUR = [
   'moonlight-qt', 'mpdris2', 'modrinth-app-git', 'r2modman-bin', 'ddcui'

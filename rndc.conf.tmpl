@@ -1,4 +1,4 @@
-{{ if lookPath "rndc" -}}
+{{ if eq (output "sh" "-c" "systemctl is-enabled slapd.service || true" | trim) "enabled" -}}
 options {
   default-server localhost;
   default-key "custom";

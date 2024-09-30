@@ -1,4 +1,4 @@
-{{ if lookPath "named" -}}
+{{ if eq (output "sh" "-c" "systemctl is-enabled named.service || true" | trim) "enabled" -}}
 controls {
   inet 127.0.0.1 allow { localhost; } keys { custom; };
 };
