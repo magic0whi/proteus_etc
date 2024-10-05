@@ -1,6 +1,8 @@
 [Resolve]
+{{ if eq .chezmoi.hostname "PROTEUSDESKTOP" -}}
 DNS=127.0.0.1#ns01.tailba6c3f.ts.net
 DNS=::1#ns01.tailba6c3f.ts.net
+{{ end -}}
 DNS=172.64.36.1#yblqq1ua9r.cloudflare-gateway.com
 DNS=2a06:98c1:54::18:72a#yblqq1ua9r.cloudflare-gateway.com
 DNS=8.8.4.4#dns.google
