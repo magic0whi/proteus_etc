@@ -23,6 +23,8 @@ table inet filter {
     iifname tun0 accept comment "Allow Sing-box"
     tcp dport 8888 accept comment "Allow Atuin"
     udp dport bootps accept comment "Allow DHCP server (systemd-nspawn)"
+    tcp dport { 48077, 48087 } accept comment "Allow Tiptime (TCP)"
+    udp dport 59448 accept comment "Allow Tiptime (UDP)"
     pkttype host limit rate 5/second counter reject with icmpx type admin-prohibited comment "Limit ping speed from other Internet"
     counter
   }
