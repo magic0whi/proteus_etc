@@ -1,0 +1,8 @@
+{{ if eq (output "sh" "-c" "systemctl is-enabled named.service || true" | trim) "enabled" -}}
+[Unit]
+BindsTo=mnt-storage3.mount
+After=systemd-resolved.service mnt-storage3.mount
+
+[Service]
+ExecStartPre=/usr/bin/sleep 0.1
+{{ end -}}

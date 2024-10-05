@@ -39,7 +39,8 @@ options {
   server-id none;
   dnssec-validation no;
   # Uncomment if you wish to use ISP forwarders
-  #forwarders { 127.0.0.53; };
+  forward only;
+  forwarders { 127.0.0.54; };
 };
 dnssec-policy custom {
   keys {
