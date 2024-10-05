@@ -37,7 +37,7 @@ options {
   version none;
   hostname none;
   server-id none;
-  dnssec-validation auto;
+  dnssec-validation no;
   # Uncomment if you wish to use ISP forwarders
   #forwarders { 127.0.0.53; };
 };
@@ -54,8 +54,8 @@ zone "tailba6c3f.ts.net" IN {
   type master;
   file "tailba6c3f.ts.net.zone";
   # Waiting for tailscale to allow to submit a DS record
-  dnssec-policy custom;
-  update-policy local;
+  # dnssec-policy custom;
+  # update-policy local;
 };
 logging {
   channel xfer-log {
