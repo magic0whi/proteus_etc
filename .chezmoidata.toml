@@ -30,7 +30,7 @@ aurChrootPath = '/tmp/aur_chroot'
 [PROTEUSLAPTOP]
 installExtra = true
 packagesSpec = [
-  'amd-ucode', 'bluez', 'bluez-utils', 'iwd', 'wireless-regdb', 'blueman', 'bolt', 'hip-runtime-amd', 'rocm-smi-lib',
+  'amd-ucode', 'bluez', 'bluez-obex', 'bluez-utils', 'iwd', 'wireless-regdb', 'blueman', 'bolt', 'hip-runtime-amd', 'rocm-smi-lib',
   'vulkan-radeon', 'lib32-vulkan-radeon', 'mpd', 'mpc', 'keepassxc', 'blender', 'ario', 'yt-dlp', 'ytfzf', 'docker', 'act', 'bat', 'colord', 'ddcutil', 'libc++', 'lld', 'lldb'
 ]
 packagesAUR = [
