@@ -1,0 +1,5 @@
+{{ if eq (output "sh" "-c" "systemctl is-enabled atuin@proteus.service || true" | trim) "enabled" -}}
+[Unit]
+BindsTo=mnt-storage3.mount
+After=mnt-storage3.mount
+{{ end -}}

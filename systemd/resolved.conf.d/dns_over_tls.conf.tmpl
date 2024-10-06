@@ -1,3 +1,4 @@
+{{ if ne .chezmoi.hostname "PROTEUSDESKTOP" -}}
 [Resolve]
 DNS=172.64.36.1#yblqq1ua9r.cloudflare-gateway.com
 DNS=2a06:98c1:54::18:72a#yblqq1ua9r.cloudflare-gateway.com
@@ -12,3 +13,4 @@ DNS=45.90.28.0#a2d7d4.dns1.nextdns.io
 DNS=2a07:a8c0::#a2d7d4.dns1.nextdns.io
 DNSOverTLS=opportunistic
 # DNSSEC=allow-downgrade
+{{ end -}}

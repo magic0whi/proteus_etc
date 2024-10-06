@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.hostname "PROTEUSDESKTOP" -}}
+{{ if eq (output "sh" "-c" "systemctl is-enabled atuin@proteus.service || true" | trim) "enabled" -}}
 [Unit]
 Description=Start the Atuin server syncing service
 BindsTo=mnt-storage3.mount
