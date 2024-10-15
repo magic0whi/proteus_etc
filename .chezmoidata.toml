@@ -16,9 +16,9 @@ packages.archExtra = [
   'texlive-binextra', 'texlive-langchinese', 'texlive-langjapanese', 'texlive-latexextra', 'texlive-luatex', 'texlive-mathscience', 'texlive-plaingeneric',
   'firefox', 'profile-sync-daemon', 'mpv', 'zathura', 'zathura-pdf-poppler', 'jupyterlab', 'gnuplot',
   'loupe', 'gimp', 'obs-studio', 'steam', 'lutris', 'telegram-desktop', 'discord', 'meld'
-] # chntpw (Windows Registry), efibootmgr, fswebcam, p7zip, unrar, innoextract, iperf3, nethogs, nmap, nvme-cli, picocom, powertop, python-sympy, speedtest-cli, torbrowser-launcher, traceroute, tree, wev
+] # chntpw (Windows Registry), efibootmgr, fswebcam, p7zip, unrar, innoextract, iperf3, nethogs, nmap, nvme-cli, picocom, powertop, python-sympy, speedtest-cli, torbrowser-launcher, traceroute, tree, wev, mtr
 packages.AUR = [
-  'paru', 'sing-box', 'yazi', 'cmake-language-server', 'moonlight-qt', 'ltex-ls-bin', 'carapace', 'nil-git', 'cloudflare-warp-bin'
+  'paru', 'sing-box', 'yazi', 'cmake-language-server', 'moonlight-qt', 'ltex-ls-bin', 'carapace', 'nil-git', 'cloudflare-warp-bin', 'localsend-bin'
 ]
 packages.AURExtra = [
   'anki', 'fcitx5-pinyin-moegirl', 'xdg-terminal-exec-git', 'wluma'
@@ -31,10 +31,10 @@ aurChrootPath = '/tmp/aur_chroot'
 installExtra = true
 packagesSpec = [
   'amd-ucode', 'bluez', 'bluez-obex', 'bluez-utils', 'iwd', 'wireless-regdb', 'blueman', 'bolt', 'hip-runtime-amd', 'rocm-smi-lib',
-  'vulkan-radeon', 'lib32-vulkan-radeon', 'mpd', 'mpc', 'keepassxc', 'blender', 'ario', 'yt-dlp', 'ytfzf', 'docker', 'act', 'bat', 'colord', 'ddcutil', 'libc++', 'lld', 'lldb'
+  'vulkan-radeon', 'lib32-vulkan-radeon', 'mpd', 'mpc', 'keepassxc', 'blender', 'ario', 'yt-dlp', 'ytfzf', 'docker', 'act', 'bat', 'colord', 'ddcutil', 'libc++', 'lld', 'lldb', 'remmina', 'freerdp'
 ]
 packagesAUR = [
-  'moonlight-qt', 'mpdris2', 'modrinth-app-git', 'r2modman-bin', 'ddcui'
+  'conservation_mode', 'moonlight-qt', 'mpdris2', 'modrinth-app-git', 'r2modman-bin', 'ddcui'
 ]
 alsa.defaultCard = 'Generic_1'
 batModel = 'L22M4PF7'

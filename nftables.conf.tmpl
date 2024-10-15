@@ -15,7 +15,7 @@ table inet filter {
     ip6 saddr { fe80::/16, fd66:06e5:aebe::/48 } accept comment "Allow from Link-Local / ULA-Prefix (IPv6)"
     ip protocol icmp accept comment "Allow ICMP"
     meta l4proto ipv6-icmp accept comment "Allow ICMP v6"
-    meta protocol ip6 udp dport dhcpv6-client accept comment "Allow DHCPv6"
+    udp dport dhcpv6-client accept comment "Allow DHCPv6"
     udp dport 41641 counter accept comment "Allow Tailscale"
     iifname "tailscale0*" counter accept comment "Allow from Tailscale"
     tcp dport snapenetio accept comment "Allow Syncthing"
@@ -25,6 +25,8 @@ table inet filter {
     udp dport bootps accept comment "Allow DHCP server (systemd-nspawn)"
     tcp dport 11451 counter accept comment "Allow i2pd (TCP)"
     udp dport 11451 counter accept comment "Allow i2pd (UDP)"
+    tcp dport 53317 counter accept comment "Allow LocalSend (HTTP/TCP)"
+    udp dport 53317 counter accept comment "Allow LocalSend (Multicast/UDP)"
     pkttype host limit rate 5/second counter reject with icmpx type admin-prohibited comment "Limit ping speed from other Internet"
     counter
   }
@@ -41,7 +43,7 @@ table inet filter {
     ip saddr 172.17.0.0/12 counter accept comment "Allow Docker containers' packages go outside"
     ip daddr 172.17.0.0/12 counter accept comment "Allow packages go into docker containers"
     iifname "ve-*" counter accept comment "Allow systemd-nspawn container"
-
+    oifname "ve-*" counter accept comment "Allow systemd-nspawn container"
 {{- end }}
   }
 }
