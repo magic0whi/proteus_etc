@@ -60,4 +60,9 @@ $HTTP["host"] =^ "web-llm-chat" {
   server.name = sub_dir + "." + server.name
   server.document-root = vhosts_dir + "/" + sub_dir + "/out"
 }
+$HTTP["host"] =^ "aria2" {
+  var.sub_dir = "AriaNg"
+  server.name = sub_dir + "." + server.name
+  server.document-root = vhosts_dir + "/" + sub_dir + "/dist"
+}
 {{ end -}}
