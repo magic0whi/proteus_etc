@@ -51,7 +51,6 @@ fstabSnapshotsUUID = '89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
 # /dev/mapper/cryptroot LABEL=arch_os
 fstabVarLogUUID = '89209d7b-bde0-4169-b92e-7b1dd3cbe1bf'
 wirelessAdapterName = 'wlp1s0'
-SSID = 'Xiaomi_704C_5G'
 
 [[PROTEUSLAPTOP.alsa.pcms]]
 name = '!default'

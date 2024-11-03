@@ -1,7 +1,6 @@
 {{ if dig .chezmoi.hostname "wirelessAdapterName" nil . -}}
 [Match]
-Name={{ index . .chezmoi.hostname "wirelessAdapterName" }}
-SSID={{ index . .chezmoi.hostname "SSID" }}
+Path=pci-0000:01:00.0
 
 [Link]
 NamePolicy=kernel database onboard slot path
