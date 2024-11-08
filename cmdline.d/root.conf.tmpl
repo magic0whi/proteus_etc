@@ -2,8 +2,9 @@ root=/dev/mapper/cryptroot
 rootflags=subvolid=256
 resume=/dev/mapper/cryptroot
 resume_offset={{ index . .chezmoi.hostname "hibernateResumeOffset" }}
+amdgpu.dcdebugmask=0x10
 {{- if eq .chezmoi.hostname "PROTEUSLAPTOP" }}
-drm.edid_firmware=eDP-1:../../../etc/custom_files/yogaair13s_vrr.bin,DP-3:../../../etc/custom_files/oled_vrr.bin
+drm.edid_firmware=eDP-1:edid/yogaair13s_vrr.bin,DP-3:edid/oled_vrr.bin
 {{- else if eq .chezmoi.hostname "PROTEUSNOTEBOOK" }}
 i915.enable_guc=2
 i915.mitigations=off

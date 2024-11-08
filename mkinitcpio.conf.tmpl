@@ -23,7 +23,7 @@ BINARIES=()
 # This setting is similar to BINARIES above, however, files are added
 # as-is and are not parsed in any way.  This is useful for config files.
 FILES=({{ if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
-/etc/custom_files/yogaair13s_vrr.bin /etc/custom_files/oled_vrr.bin
+/usr/lib/firmware/edid/yogaair13s_vrr.bin /usr/lib/firmware/edid/oled_vrr.bin
 {{- else if eq .chezmoi.hostname "PROTEUSDESKTOP" -}}
 /etc/custom_files/unsafe_root_keyfile.bin
 {{- end }})

@@ -1,0 +1,13 @@
+{{if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Operation=Remove
+Type=Package
+Target=linux-firmware
+
+[Action]
+Description=Copying modified EDIDs
+When=PostTransaction
+Exec=/usr/bin/sh -c '[ ! -d /lib/firmware/edid ] && mkdir /lib/firmware/edid; cp /etc/custom_files/{oled_vrr.bin,yogaair13s_vrr.bin} /lib/firmware/edid/'
+{{- end }}
