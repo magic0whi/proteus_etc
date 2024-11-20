@@ -11,7 +11,7 @@ table inet filter {
     ct state invalid drop comment "Early drop of invalid connections"
     ct state {established, related} accept comment "Allow tracked connections"
     iif lo accept comment "Allow from loopback"
-    ip saddr 192.168.1.0/24 accept comment "Allow from LAN"
+    ip saddr 192.168.15.0/24 accept comment "Allow from LAN"
     ip6 saddr { fe80::/16, fd66:06e5:aebe::/48 } accept comment "Allow from Link-Local / ULA-Prefix (IPv6)"
     ip protocol icmp accept comment "Allow ICMP"
     meta l4proto ipv6-icmp accept comment "Allow ICMP v6"
@@ -32,7 +32,7 @@ table inet filter {
   }
   chain forward {
     type filter hook forward priority filter; policy drop;
-    ip saddr 192.168.1.0/24 counter accept comment "Allow forward from LAN"
+    ip saddr 192.168.15.0/24 counter accept comment "Allow forward from LAN"
     ip6 saddr { fe80::/16, fd66:06e5:aebe::/48 } counter accept comment "Allow forward from Link-Local / ULA-Prefix (IPv6)"
     ip6 saddr { 2409:8a20:5064:4cd0::/64 } accept comment "Allow forward from SLAAC (IPv6)"
     ip6 daddr { 2409:8a20:5064:4cd0::/64 } accept comment "Allow forward to SLAAC (IPv6)"
