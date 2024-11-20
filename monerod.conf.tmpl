@@ -6,6 +6,12 @@
 {{ if eq .chezmoi.hostname "PROTEUSDESKTOP" -}}
 data-dir=/mnt/storage1/monero
 log-file=/mnt/storage1/monero/monero.log
+public-node=1
+rpc-bind-ip=100.89.228.70
+rpc-bind-ipv6-address=fd7a:115c:a1e0::2c01:e446
+p2p-use-ipv6=1
+rpc-use-ipv6=1
+restricted-rpc=1
 {{ else -}}
 data-dir=/var/lib/monero
 log-file=/var/log/monero/monero.log
