@@ -10,8 +10,8 @@ ExecStart=-/usr/bin/systemctl stop sing-box@config.service
 {{ if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
 ExecStart=-/usr/bin/systemctl stop xmrig@work.service
 ExecStart=-/usr/bin/systemctl stop systemd-networkd.service iwd.service bluetooth.service
-ExecStart=-/usr/bin/modprobe -r mt7921e mt7921_common mt792x_lib mt76 btusb btmtk snd_hda_scodec_tas2781_i2c snd_soc_tas2781_fmwlib snd_soc_tas2781_comlib thunderbolt
-ExecStop=-/usr/bin/sh -c 'modprobe btmtk; modprobe btusb; modprobe mt7921e; modprobe snd_hda_scodec_tas2781_i2c; modprobe thunderbolt'
+ExecStart=-/usr/bin/modprobe -r snd_hda_scodec_tas2781_i2c snd_soc_tas2781_fmwlib snd_soc_tas2781_comlib thunderbolt
+ExecStop=-/usr/bin/sh -c 'modprobe snd_hda_scodec_tas2781_i2c; modprobe thunderbolt'
 ExecStop=-/usr/bin/systemctl start iwd.service bluetooth.service systemd-networkd.service
 ExecStop=-/usr/bin/systemctl start xmrig@work.service
 {{ else if eq .chezmoi.hostname "PROTEUSNOTEBOOK" -}}
