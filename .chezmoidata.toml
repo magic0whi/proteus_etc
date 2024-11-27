@@ -1,6 +1,6 @@
 [COMMON]
 packages.arch = [
-  'linux-zen', 'linux-firmware', 'sbctl',
+  'linux-zen', 'linux-lts', 'linux-firmware', 'sbctl',
   'base', 'base-devel', 'iptables-nft', 'udisks2', 'rng-tools', 'zram-generator', 'btrfs-progs', 'bash-completion', 'openssh', 'git', 'git-lfs', 'cifs-utils', 'openldap', 'sssd', 'devtools',
   'helix', 'bash-language-server', 'marksman', 'taplo-cli', 'texlab', 'python-lsp-server', 'vscode-css-languageserver', 'vscode-json-languageserver', 'yaml-language-server', 'typescript-language-server',
   'btop', 'tmux', 'zsh', 'zsh-completions', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'dust', 'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf', 'atuin',
