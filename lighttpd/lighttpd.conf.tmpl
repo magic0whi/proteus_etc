@@ -16,8 +16,8 @@ deflate.allowed-encodings = ("brotli", "gzip", "deflate")
 deflate.cache-dir = "/tmp/lighttpd/cache"
 
 # SSL
-ssl.privkey = "/mnt/overlay/keys/private/proteus_ca.key.pem"
 ssl.pemfile = "/mnt/overlay/keys/proteus_server.pem"
+ssl.privkey = "/mnt/overlay/keys/private/proteus_server.key.pem"
 ssl.openssl.ssl-conf-cmd = ("MinProtocol" => "TLSv1.3")
 ssl.openssl.ssl-conf-cmd += ("Options" => "-ServerPreference")
 # If using systemd-socket the listen work is done by systemd , set it here

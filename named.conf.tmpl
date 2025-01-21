@@ -17,7 +17,7 @@ acl local-networks {
 };
 tls mycert {
   cert-file "/mnt/overlay/keys/proteus_server.pem";
-  key-file "/mnt/overlay/keys/private/proteus_ca.key.pem";
+  key-file "/mnt/overlay/keys/private/proteus_server.key.pem";
 };
 tls Cloudflare {
   remote-hostname "one.one.one.one";
@@ -51,6 +51,8 @@ options {
   forward only;
   forwarders {
     223.5.5.5;
+    8.8.8.8;
+    2400:3200::1;
     2001:4860:4860::8888 port 853 tls Google;
     8.8.4.4 port 853 tls Google;
     2606:4700:4700::1111 port 853 tls Cloudflare;
@@ -70,10 +72,10 @@ dnssec-policy custom {
   signatures-validity 10d; # ZSK validity last for 10 days (resigned every 2 days)
   signatures-validity-dnskey 10d; # KSK validity last for 10 days
 };
-zone "tailba6c3f.ts.net" IN {
+zone "proteus.eu.org" IN {
   type master;
-  file "tailba6c3f.ts.net.zone";
-  # Waiting for tailscale to allow to submit a DS record
+  file "proteus.eu.org.zone";
+  # Waiting for nic.eu.org to allow for submit a DS record
   # dnssec-policy custom;
   # update-policy local;
 };
