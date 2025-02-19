@@ -19,7 +19,7 @@ User tor
 ## as a relay, and not make any local application connections yourself.
 #SOCKSPort 9050 # Default: Bind to localhost:9050 for local connections.
 SOCKSPort 100.89.228.70:9050 # Bind to this address:port too.
-SOCKSPORT [fd7a:115c:a1e0::2c01:e446]:9050
+SOCKSPort [fd7a:115c:a1e0::2c01:e446]:9050
 
 ## Entry policies to allow/deny SOCKS requests based on IP address.
 ## First entry that matches wins. If no SOCKSPolicy is set, we accept
@@ -259,4 +259,5 @@ Bridge snowflake 192.0.2.4:80 8838024498816A039FCBBAB14E6F40A0843051FA fingerpri
 GeoIPFile /usr/share/tor/geoip
 GeoIPv6File /usr/share/tor/geoip6
 UseBridges 1
+ExitNodes {GB}
 {{ end -}}
