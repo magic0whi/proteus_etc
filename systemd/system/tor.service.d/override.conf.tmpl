@@ -1,4 +1,5 @@
 {{ if eq (output "sh" "-c" "systemctl is-enabled tor.service || true" | trim) "enabled" -}}
 [Unit]
-Wants=network-online.target systemd-networkd-wait-online.service
+Wants=network-online.target tailscaled.service
+After=network-online.target tailscaled.service
 {{- end }}
