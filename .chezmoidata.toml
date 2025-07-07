@@ -3,7 +3,7 @@ packages.arch = [
   'linux-firmware', 'sbctl',
   'base', 'base-devel', 'iptables-nft', 'udisks2', 'rng-tools', 'zram-generator', 'btrfs-progs', 'bash-completion', 'openssh', 'git', 'git-lfs', 'cifs-utils', 'openldap', 'sssd', 'devtools',
   'helix', 'bash-language-server', 'marksman', 'taplo-cli', 'texlab', 'python-lsp-server', 'vscode-css-languageserver', 'vscode-json-languageserver', 'yaml-language-server', 'typescript-language-server',
-  'btop', 'tmux', 'zsh', 'zsh-completions', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'dust', 'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf', 'atuin',
+  'btop', 'tmux', 'zsh', 'zsh-completions', 'zsh-autosuggestions', 'zsh-syntax-highlighting', 'zsh-history-substring-search', 'compsize', 'dust', 'rsync', 'man', 'tealdeer', 'ripgrep', 'fzf', 'atuin', 'zoxide',
   'noto-fonts', 'noto-fonts-cjk', 'noto-fonts-emoji', 'inter-font', 'ttc-iosevka',
   'tailscale', 'nix', 'yarn', 'ethtool', 'python-pip'
 ]
@@ -19,7 +19,7 @@ packages.archExtra = [
 ] # chntpw (Windows Registry), efibootmgr, fswebcam, p7zip, unrar, innoextract, iperf3, nethogs, nmap, nvme-cli, picocom, powertop, python-sympy, speedtest-cli, torbrowser-launcher, traceroute, tree, wev, mtr
 packages.AUR = [
   # 'cmake-language-server'
-  'paru', 'sing-box', 'yazi', 'moonlight-qt', 'ltex-ls-bin', 'carapace', 'nil-git', 'cloudflare-warp-bin', 'localsend-bin'
+  'paru', 'sing-box', 'yazi', 'moonlight-qt', 'ltex-ls-bin', 'nil-git', 'cloudflare-warp-bin', 'localsend-bin'
 ]
 packages.AURExtra = [
   'anki', 'fcitx5-pinyin-moegirl', 'xdg-terminal-exec-git', 'wluma'
